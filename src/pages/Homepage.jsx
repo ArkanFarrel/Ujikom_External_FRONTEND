@@ -127,9 +127,48 @@ const testimonials = [
   },
 ];
 
+const services = [
+  {
+    title: "Beli properti",
+    description:
+      "Kami Menawarkan Beragam Pilihan Properti yang Sesuai dengan Kebutuhan dan Anggaran Anda.",
+    icon: "🏠",
+  },
+  {
+    title: "Jual Properti Anda",
+    description:
+      "Kami Menyediakan Layanan agar Properti Anda terjual dengan Harga Terbaik.",
+    icon: "🏡",
+  },
+  {
+    title: "Perhitungan KPR",
+    description:
+      "Kalkulator KPR untuk Mengetahui Besaran Cicilan Bulanan, Suku Bunga, dan Jangka Waktu yang Sesuai.",
+    icon: "🏦",
+  },
+  {
+    title: "Listing Terbaik",
+    description:
+      "Jelajahi Berbagai Jenis Properti dengan Fasilitas Modern dan Lokasi Strategis.",
+    icon: "📋",
+  },
+  {
+    title: "Harga Bersahabat",
+    description:
+      "Kami Menawarkan Pilihan Terbaik dengan Harga Kompetitif dan Nilai Investasi yang Menguntungkan.",
+    icon: "💰",
+  },
+  {
+    title: "Komunikasi Mudah",
+    description:
+      "Kami Siap Membantu Anda Menemukan atau Menjual Properti dengan Proses yang Transparan dan Ramah.",
+    icon: "💬",
+  },
+];
+
 const Homepage = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-    const [dropdownOpen, setDropdownOpen] = useState(null);
+  const [dropdownOpen, setDropdownOpen] = useState(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -146,18 +185,18 @@ const Homepage = () => {
     };
   }, []);
 
-    useEffect(() => {
-      const handleClickOutside = (event) => {
-        if (!event.target.closest(".dropdown")) {
-          setDropdownOpen(null);
-        }
-      };
-  
-      document.addEventListener("click", handleClickOutside);
-      return () => {
-        document.removeEventListener("click", handleClickOutside);
-      };
-    }, []);
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (!event.target.closest(".dropdown")) {
+        setDropdownOpen(null);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
 
   return (
     <>
@@ -181,7 +220,7 @@ const Homepage = () => {
                   Home
                 </a>
                 <a
-                  href=""
+                  href="#/home"
                   className="text-gray-700 hover:bg-green-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                 >
                   About us
@@ -304,6 +343,36 @@ const Homepage = () => {
         </div>
       </div>
 
+      <section className="bg-gray-50 py-16 px-4 text-center">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-gray-800">
+            Kami Memberikan Pelayanan Yang Lebih Baik Untuk Anda
+          </h2>
+          <p className="text-gray-600 mt-4">
+            Komitmen Kami Adalah Memenuhi Kebutuhan Anda dengan Layanan yang
+            Berkualitas, Cepat, dan Ramah.
+          </p>
+        </div>
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          {services.map((service, index) => (
+            <div
+              key={index}
+              className="flex flex-col items-center p-6 bg-white shadow-lg rounded-xl"
+            >
+              <div className="text-4xl bg-green-100 text-green-500 rounded-full p-4">
+                {service.icon}
+              </div>
+              <h3 className="mt-4 text-xl font-semibold text-gray-800">
+                {service.title}
+              </h3>
+              <p className="text-gray-600 mt-2 text-sm">
+                {service.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <div id="testimonials" className="bg-gray-100 py-10 mt-10">
         <h2 className="text-2xl font-bold text-center mb-7">
           Kata Mereka yang Sudah Menggunakan Layanan Rumahku
@@ -331,7 +400,7 @@ const Homepage = () => {
           scrolling="no"
           marginHeight="0"
           marginWidth="0"
-          src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=pamulang+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+          src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=villa%20dago,%20pamulang+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
         ></iframe>
       </div>
 
