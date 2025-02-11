@@ -1,6 +1,6 @@
 import React from 'react';
 import { HashRouter as Router, Route, Routes } from 'react-router-dom';
-import Landingpage from './components/Landingpage.jsx';
+import Landingpage from './pages/Landingpage.jsx';
 import Login from './pages/Login.jsx';
 import "./index.js";
 import Dashboardadmin from './pages/Dashboardadmin.jsx';
@@ -8,8 +8,8 @@ import Listrumah from './pages/Listrumah.jsx';
 import Register from './pages/Register.jsx';
 import Dashboard from './pages/Dashboard.jsx';
 import Forgotpassword from './pages/Forgotpassword.jsx';
-import Home from './components/Homepage.jsx';
 import Dashboarduser from './pages/DashboardUser.jsx';
+import Homepage from './pages/Homepage.jsx';
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
         <Route path="/" element={<Landingpage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/home" element={<Home />} />
+        <Route path="/home" element={<Homepage />} />
         <Route path="/listrumah" element={<Listrumah />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/admin" element={<Dashboardadmin />} />

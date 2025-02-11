@@ -1,12 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router";
-import Footer from "./Footer.jsx";
-import PropertyCard from "./Propertycard.jsx";
-import FeatureCard from "./Featurecard.jsx";
+import Footer from "../components/Footer.jsx";
+import PropertyCard from "../components/Propertycard.jsx";
+import FeatureCard from "../components/Featurecard.jsx";
 import gambar from "../img/logo-rku.png";
-import { IoLogInSharp } from "react-icons/io5";
-import { IoPerson } from "react-icons/io5";
 
 const handleScrollToTestimonial = () => {
   const testimonialSection = document.getElementById("testimonials");
@@ -14,16 +11,16 @@ const handleScrollToTestimonial = () => {
     testimonialSection.scrollIntoView({ behavior: "smooth" });
   }
 };
-const handleScrollToFeaturecard = () => {
+const handleScrollTofeaturecard = () => {
   const featurecard = document.getElementById("featurecard");
   if (featurecard) {
     featurecard.scrollIntoView({ behavior: "smooth" });
   }
 };
 const handleScrollTolayanan = () => {
-  const testimonialSection = document.getElementById("layanan");
-  if (testimonialSection) {
-    testimonialSection.scrollIntoView({ behavior: "smooth" });
+  const layanan = document.getElementById("layanan");
+  if (layanan) {
+    layanan.scrollIntoView({ behavior: "smooth" });
   }
 };
 
@@ -36,17 +33,16 @@ const featureCards = [
   {
     icon: "https://storage.googleapis.com/seo-cms/assets/iklankan_properti_5f17f9d285/iklankan_properti_5f17f9d285.svg",
     title: "Iklankan Properti",
-    onclick: handleScrollToFeaturecard,
+    onclick: handleScrollTofeaturecard,
   },
   {
     icon: "https://storage.googleapis.com/seo-cms/assets/Jual_Propertimu_749b908321/Jual_Propertimu_749b908321.svg",
     title: "Jual Propertimu",
-    onclick: handleScrollToFeaturecard,
+    onclick: handleScrollTofeaturecard,
   },
   {
     icon: "https://storage.googleapis.com/seo-cms/assets/carikan_properti_d35e238a07/carikan_properti_d35e238a07.svg",
     title: "Carikan Properti",
-    onclick: handleScrollToFeaturecard,
   },
   {
     icon: "https://storage.googleapis.com/seo-cms/assets/simulasi_kpr_105d56534d/simulasi_kpr_105d56534d.svg",
@@ -131,9 +127,9 @@ const testimonials = [
   },
 ];
 
-const Landingpage = () => {
+const Homepage = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(null);
+    const [dropdownOpen, setDropdownOpen] = useState(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -150,22 +146,18 @@ const Landingpage = () => {
     };
   }, []);
 
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (!event.target.closest(".dropdown")) {
-        setDropdownOpen(null);
-      }
-    };
-
-    document.addEventListener("click", handleClickOutside);
-    return () => {
-      document.removeEventListener("click", handleClickOutside);
-    };
-  }, []);
-
-  const navigate = useNavigate();
-  const handleLogin = () => navigate("/login");
-  const handleRegister = () => navigate("/register");
+    useEffect(() => {
+      const handleClickOutside = (event) => {
+        if (!event.target.closest(".dropdown")) {
+          setDropdownOpen(null);
+        }
+      };
+  
+      document.addEventListener("click", handleClickOutside);
+      return () => {
+        document.removeEventListener("click", handleClickOutside);
+      };
+    }, []);
 
   return (
     <>
@@ -183,7 +175,7 @@ const Landingpage = () => {
             <div className="flex flex-1 items-center justify-start sm:items-stretch sm:justify-start">
               <div className="hidden sm:ml-6 sm:flex space-x-4">
                 <a
-                  href=""
+                  href="#/home"
                   className="text-gray-700 hover:bg-green-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                 >
                   Home
@@ -212,7 +204,9 @@ const Landingpage = () => {
                         <a
                           key={item}
                           // href={`/${item.toLowerCase()}`}
-                          href=""
+
+                          // sementara seperti dibawah ini
+                          href="#/home"
                           className="block px-4 py-2 text-gray-700 hover:bg-green-200 transition"
                         >
                           {item}
@@ -239,7 +233,9 @@ const Landingpage = () => {
                         <a
                           key={item}
                           // href={`/${item.toLowerCase()}`}
-                          href=""
+
+                          // sementara seperti dibawah ini
+                          href="#/home"
                           className="block px-4 py-2 text-gray-700 hover:bg-green-200 transition"
                         >
                           {item}
@@ -250,21 +246,29 @@ const Landingpage = () => {
                 </div>
               </div>
             </div>
+            <div className="flex items-center space-x-4">
+              {/* Icon Keranjang Belanja */}
+              <button
+                className="relative hover:text-green"
+                aria-label="Keranjang Belanja"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2}
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M3 3h2l.4 2M7 13h10l3.4-8H6.4M7 13L5.4 6M7 13l-1.6 8M17 13l1.6 8M9 21h6"
+                  />
+                </svg>
 
-            <div className="flex space-x-4">
-              <button
-                onClick={handleLogin}
-                className="flex items-center gap-2 text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md text-sm font-medium transition duration-300 ease-in-out"
-              >
-                <IoLogInSharp className="text-lg" />
-                <span>Login</span>
-              </button>
-              <button
-                onClick={handleRegister}
-                className="flex items-center gap-2 text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md text-sm font-medium transition duration-300 ease-in-out"
-              >
-                <IoPerson className="text-lg" />
-                <span>Register</span>
+                {/* Badge jumlah item di keranjang */}
+                <span className="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-red-600 rounded-full transform translate-x-2 -translate-y-2"></span>
               </button>
             </div>
           </div>
@@ -278,7 +282,7 @@ const Landingpage = () => {
               key={index}
               icon={card.icon}
               title={card.title}
-              onClick={card.onclick}
+              onClick={card.onclick} // Properti onClick diteruskan
             />
           ))}
         </div>
@@ -293,7 +297,7 @@ const Landingpage = () => {
             Lihat Selengkapnya
           </button>
         </div>
-        <div className="flex p-4 space-x-2">
+        <div className="flex p-4 space-x-4">
           {propertyData.map((property, index) => (
             <PropertyCard key={index} {...property} />
           ))}
@@ -317,6 +321,7 @@ const Landingpage = () => {
           ))}
         </div>
       </div>
+
       <div style={{ width: "100%" }}>
         <iframe
           title="Google Maps"
@@ -350,6 +355,7 @@ const Landingpage = () => {
               </a>
             </p>
           </div>
+
           <div className="text-gray-700">
             <h3 className="text-lg font-medium">
               Direktorat Jenderal Perlindungan Konsumen dan Tertib Niaga (Ditjen
@@ -369,4 +375,4 @@ const Landingpage = () => {
   );
 };
 
-export default Landingpage;
+export default Homepage;
