@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import Footer from "./Footer.jsx";
 import PropertyCard from "./Propertycard.jsx";
 import FeatureCard from "./Featurecard.jsx";
 import gambar from "../img/logo-rku.png";
+import { IoLogInSharp } from "react-icons/io5";
+import { IoPerson } from "react-icons/io5";
 
 const handleScrollToTestimonial = () => {
   const testimonialSection = document.getElementById("testimonials");
@@ -129,13 +131,34 @@ const testimonials = [
 ];
 
 const Landingpage = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   const navigate = useNavigate();
   const handleLogin = () => navigate("/login");
   const handleRegister = () => navigate("/register");
 
   return (
     <>
-      <nav className="bg-white-100 sticky top-0 z-50 w-full">
+      <nav
+        className={`fixed top-0 z-50 w-full transition-all duration-300 ${
+          isScrolled ? "bg-white shadow-md" : "bg-transparent"
+        }`}
+      >
         <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
           <div className="relative flex h-16 items-center justify-between">
             {/* Logo */}
@@ -150,7 +173,7 @@ const Landingpage = () => {
                   <a
                     key={item}
                     href="#"
-                    className="text-gray-300 hover:bg-green-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                    className="text-gray-700 hover:bg-green-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                   >
                     {item}
                   </a>
@@ -162,22 +185,24 @@ const Landingpage = () => {
             <div className="flex space-x-4">
               <button
                 onClick={handleLogin}
-                className="text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md text-sm font-medium transition duration-300 ease-in-out"
+                className="flex items-center gap-2 text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md text-sm font-medium transition duration-300 ease-in-out"
               >
-                Login
+                <IoLogInSharp className="text-lg" />
+                <span>Login</span>
               </button>
               <button
                 onClick={handleRegister}
-                className="text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md text-sm font-medium transition duration-300 ease-in-out"
+                className="flex items-center gap-2 text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md text-sm font-medium transition duration-300 ease-in-out"
               >
-                Register
+                <IoPerson className="text-lg" />
+                <span>Register</span>
               </button>
             </div>
           </div>
         </div>
       </nav>
 
-      <div id="featurecard" className="mt-10 flex flex-col items-center">
+      <div id="featurecard" className="mt-24 flex flex-col items-center">
         <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4 w-full max-w-6xl px-4">
           {featureCards.map((card, index) => (
             <FeatureCard

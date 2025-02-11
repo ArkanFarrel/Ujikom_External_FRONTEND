@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
+import React, { useEffect, useState } from "react";
 // import { useNavigate } from "react-router";
 import Footer from "./Footer.jsx";
 import PropertyCard from "./Propertycard.jsx";
@@ -129,9 +129,30 @@ const testimonials = [
 ];
 
 const Homepage = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <>
-      <nav className="bg-white-100 sticky top-0 z-50 w-full">
+      <nav
+        className={`fixed top-0 z-50 w-full transition-all duration-300 ${
+          isScrolled ? "bg-white shadow-md" : "bg-transparent"
+        }`}
+      >
         <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
           <div className="relative flex h-16 items-center justify-between">
             {/* Logo */}
@@ -146,14 +167,13 @@ const Homepage = () => {
                   <a
                     key={item}
                     href="#"
-                    className="text-gray-300 hover:bg-green-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                    className="text-gray-700 hover:bg-green-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                   >
                     {item}
                   </a>
                 ))}
               </div>
             </div>
-
             <div className="flex items-center space-x-4">
               {/* Icon Keranjang Belanja */}
               <button
@@ -183,7 +203,7 @@ const Homepage = () => {
         </div>
       </nav>
 
-      <div id="featurecard" className="mt-10 flex flex-col items-center">
+      <div id="featurecard" className="mt-24 flex flex-col items-center">
         <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4 w-full max-w-6xl px-4">
           {featureCards.map((card, index) => (
             <FeatureCard
