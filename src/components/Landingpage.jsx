@@ -211,7 +211,8 @@ const Landingpage = () => {
                       {["Rumah", "Apartemen", "Ruko", "Tanah"].map((item) => (
                         <a
                           key={item}
-                          href={`/${item.toLowerCase()}`}
+                          // href={`/${item.toLowerCase()}`}
+                          href=""
                           className="block px-4 py-2 text-gray-700 hover:bg-green-200 transition"
                         >
                           {item}
@@ -238,6 +239,7 @@ const Landingpage = () => {
                         <a
                           key={item}
                           // href={`/${item.toLowerCase()}`}
+                          href=""
                           className="block px-4 py-2 text-gray-700 hover:bg-green-200 transition"
                         >
                           {item}
