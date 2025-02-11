@@ -215,7 +215,7 @@ const Landingpage = () => {
         </div>
       </div>
 
-      <div className="mt-20">
+      <div className="mt-16">
         <div className="flex items-center justify-between mx-12">
           <h2 className="text-2xl font-bold text-gray-800">
             Rekomendasi Sesuai Pencarianmu

@@ -21,10 +21,13 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post("http://localhost:3008/api/auth/login", {
-        email,
-        password,
-      });
+      const response = await axios.post(
+        "http://localhost:3008/api/auth/login",
+        {
+          email,
+          password,
+        }
+      );
 
       const { token } = response.data;
       localStorage.setItem("token", token);
@@ -73,7 +76,7 @@ const Login = () => {
             />
           </div>
 
-          <div className="flex items-center justify-between text-gray-400 text-sm py-2">
+          <div className="flex items-center justify-between text-gray-400 text-xs py-2">
             <label className="flex items-center">
               <input className="mr-2" type="checkbox" /> Remember Me
             </label>

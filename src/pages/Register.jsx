@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import rumah from "../img/rumah.jpg";
 
@@ -21,18 +21,24 @@ const Register = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post("http://localhost:3008/api/auth/register", {
-        username: name, 
-        email,
-        password,
-      });
+      const response = await axios.post(
+        "http://localhost:3008/api/auth/register",
+        {
+          name,
+          email,
+          password,
+        }
+      );
 
-      const { token } = response.data
+      const { token } = response.data;
       localStorage.setItem("token", token);
       alert("Registrasi berhasil! Silakan login.");
       navigate("/login");
     } catch (error) {
-      console.error("Registrasi gagal:", error.response?.data?.msg || error.message);
+      console.error(
+        "Registrasi gagal:",
+        error.response?.data?.msg || error.message
+      );
       alert("Registrasi gagal! Coba lagi.");
     } finally {
       setLoading(false);
@@ -83,6 +89,15 @@ const Register = () => {
               onChange={(e) => setPassword(e.target.value)}
               required
             />
+          </div>
+
+          <div className="flex items-center justify-between text-gray-400 text-sm py-2">
+            <label className="flex items-center">
+              <input className="mr-2" type="checkbox" /> Remember Me
+            </label>
+            <Link to="/login" className="text-blue-500 hover:underline">
+              I have an account? Sign In
+            </Link>
           </div>
 
           <button
