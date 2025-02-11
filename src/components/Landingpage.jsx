@@ -172,7 +172,7 @@ const Landingpage = () => {
                   // eslint-disable-next-line jsx-a11y/anchor-is-valid
                   <a
                     key={item}
-                    href="#"
+                    href=""
                     className="text-gray-700 hover:bg-green-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                   >
                     {item}

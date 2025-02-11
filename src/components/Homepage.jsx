@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from "react";
-// import { useNavigate } from "react-router";
 import Footer from "./Footer.jsx";
 import PropertyCard from "./Propertycard.jsx";
 import FeatureCard from "./Featurecard.jsx";
@@ -155,7 +154,6 @@ const Homepage = () => {
       >
         <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
           <div className="relative flex h-16 items-center justify-between">
-            {/* Logo */}
             <div className="flex items-center">
               <img src={gambar} alt="Logo" className="h-10 w-auto" />
             </div>
@@ -166,7 +164,8 @@ const Homepage = () => {
                   // eslint-disable-next-line jsx-a11y/anchor-is-valid
                   <a
                     key={item}
-                    href="#"
+                    onClick={(e) => e.preventDefault()}
+                    href=""
                     className="text-gray-700 hover:bg-green-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                   >
                     {item}
