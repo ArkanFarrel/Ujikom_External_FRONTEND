@@ -209,7 +209,7 @@ const Landingpage = () => {
               key={index}
               icon={card.icon}
               title={card.title}
-              onClick={card.onclick} // Properti onClick diteruskan
+              onClick={card.onclick}
             />
           ))}
         </div>
