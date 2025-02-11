@@ -13,6 +13,7 @@ const Listrumah = ({ id, title, type, price, location, status, description, onDe
   const itemsPerPage = 6; // Jumlah rumah per halaman
 
   const theme = useTheme();
+  // eslint-disable-next-line no-unused-vars
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const handleDeleteClick = () => {
     setConfirmOpen(true);

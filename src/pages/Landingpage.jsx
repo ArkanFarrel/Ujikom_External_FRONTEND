@@ -26,6 +26,12 @@ const handleScrollTolayanan = () => {
     testimonialSection.scrollIntoView({ behavior: "smooth" });
   }
 };
+const handleScrollTolihat = () => {
+  const lihatSection = document.getElementById("lihat");
+  if (lihatSection) {
+    lihatSection.scrollIntoView({ behavior: "smooth" });
+  }
+};
 
 const featureCards = [
   {
@@ -289,7 +295,7 @@ const Landingpage = () => {
           <h2 className="text-2xl font-bold text-gray-800">
             Rekomendasi Sesuai Pencarianmu
           </h2>
-          <button className="text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md text-sm font-medium transition duration-300 ease-in-out">
+          <button onClick={handleScrollTolihat} className="text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md text-sm font-medium transition duration-300 ease-in-out">
             Lihat Selengkapnya
           </button>
         </div>
@@ -317,7 +323,7 @@ const Landingpage = () => {
           ))}
         </div>
       </div>
-      <div style={{ width: "100%" }}>
+      <div style={{ width: "100%" }} id="lihat">
         <iframe
           title="Google Maps"
           width="100%"
