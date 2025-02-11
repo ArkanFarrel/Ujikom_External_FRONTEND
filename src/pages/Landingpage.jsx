@@ -410,7 +410,7 @@ const Landingpage = () => {
 
       <div
         id="layanan"
-        className="bg-gray-50 rounded-lg shadow-md p-6 mx-auto w-full max-w-2xl my-10"
+        className="bg-gray-100 rounded-lg shadow-md p-6 mx-auto w-full max-w-2xl my-10"
       >
         <h2 className="text-2xl font-semibold text-gray-800 mb-4">
           Layanan Pengaduan Konsumen
