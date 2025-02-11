@@ -4,6 +4,7 @@ import React from "react";
 import Footer from "./Footer.jsx";
 import PropertyCard from "./Propertycard.jsx";
 import FeatureCard from "./Featurecard.jsx";
+import gambar from "../img/logo-rku.png";
 
 const handleScrollToTestimonial = () => {
   const testimonialSection = document.getElementById("testimonials");
@@ -12,15 +13,15 @@ const handleScrollToTestimonial = () => {
   }
 };
 const handleScrollTofeaturecard = () => {
-  const testimonialSection = document.getElementById("featurecard");
-  if (testimonialSection) {
-    testimonialSection.scrollIntoView({ behavior: "smooth" });
+  const featurecard = document.getElementById("featurecard");
+  if (featurecard) {
+    featurecard.scrollIntoView({ behavior: "smooth" });
   }
 };
 const handleScrollTolayanan = () => {
-  const testimonialSection = document.getElementById("layanan");
-  if (testimonialSection) {
-    testimonialSection.scrollIntoView({ behavior: "smooth" });
+  const layanan = document.getElementById("layanan");
+  if (layanan) {
+    layanan.scrollIntoView({ behavior: "smooth" });
   }
 };
 
@@ -38,6 +39,7 @@ const featureCards = [
   {
     icon: "https://storage.googleapis.com/seo-cms/assets/Jual_Propertimu_749b908321/Jual_Propertimu_749b908321.svg",
     title: "Jual Propertimu",
+    onclick: handleScrollTofeaturecard,
   },
   {
     icon: "https://storage.googleapis.com/seo-cms/assets/carikan_properti_d35e238a07/carikan_properti_d35e238a07.svg",
@@ -127,64 +129,59 @@ const testimonials = [
 ];
 
 const Homepage = () => {
-
   return (
     <>
-      <nav className="bg-gray-800 sticky top-0 z-50 w-full">
-  <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-    <div className="relative flex h-16 items-center justify-between">
-      <div className="flex items-center">
-        <img
-          className="h-10 w-10 rounded-full border-2 border-white p-0.5"
-          src=""
-          alt=""
-        />
-      </div>
-      <div className="flex flex-1 items-center justify-start sm:items-stretch sm:justify-start">
-        <div className="hidden sm:ml-6 sm:flex space-x-4">
-          {["Home", "About us", "Dijual", "Disewakan"].map((item) => (
-            <a
-              key={item}
-              href="#"
-              className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
-            >
-              {item}
-            </a>
-          ))}
+      <nav className="bg-white-100 sticky top-0 z-50 w-full">
+        <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+          <div className="relative flex h-16 items-center justify-between">
+            {/* Logo */}
+            <div className="flex items-center">
+              <img src={gambar} alt="Logo" className="h-10 w-auto" />
+            </div>
+
+            <div className="flex flex-1 items-center justify-start sm:items-stretch sm:justify-start">
+              <div className="hidden sm:ml-6 sm:flex space-x-4">
+                {["Home", "About us", "Dijual", "Disewakan"].map((item) => (
+                  // eslint-disable-next-line jsx-a11y/anchor-is-valid
+                  <a
+                    key={item}
+                    href="#"
+                    className="text-gray-300 hover:bg-green-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                  >
+                    {item}
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex items-center space-x-4">
+              {/* Icon Keranjang Belanja */}
+              <button
+                className="relative hover:text-green"
+                aria-label="Keranjang Belanja"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2}
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M3 3h2l.4 2M7 13h10l3.4-8H6.4M7 13L5.4 6M7 13l-1.6 8M17 13l1.6 8M9 21h6"
+                  />
+                </svg>
+
+                {/* Badge jumlah item di keranjang */}
+                <span className="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-red-600 rounded-full transform translate-x-2 -translate-y-2"></span>
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
-      <div className="flex items-center space-x-4">
-
-        {/* Icon Keranjang Belanja */}
-        <button
-          className="relative text-gray-300 hover:text-white"
-          aria-label="Keranjang Belanja"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={2}
-            stroke="currentColor"
-            className="w-6 h-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M3 3h2l.4 2M7 13h10l3.4-8H6.4M7 13L5.4 6M7 13l-1.6 8M17 13l1.6 8M9 21h6"
-            />
-          </svg>
-          
-          {/* Badge jumlah item di keranjang */}
-          <span className="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-red-600 rounded-full transform translate-x-2 -translate-y-2">
-            
-          </span>
-        </button>
-      </div>
-    </div>
-  </div>
-</nav>
-
+      </nav>
 
       <div id="featurecard" className="mt-10 flex flex-col items-center">
         <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4 w-full max-w-6xl px-4">
@@ -233,7 +230,7 @@ const Homepage = () => {
         </div>
       </div>
 
-      <div style={{ width: "100%"  }}>
+      <div style={{ width: "100%" }}>
         <iframe
           title="Google Maps"
           width="100%"
@@ -246,7 +243,10 @@ const Homepage = () => {
         ></iframe>
       </div>
 
-      <div id="layanan" className="bg-gray-50 rounded-lg shadow-md p-6 mx-auto w-full max-w-2xl my-10">
+      <div
+        id="layanan"
+        className="bg-gray-50 rounded-lg shadow-md p-6 mx-auto w-full max-w-2xl my-10"
+      >
         <h2 className="text-2xl font-semibold text-gray-800 mb-4">
           Layanan Pengaduan Konsumen
         </h2>

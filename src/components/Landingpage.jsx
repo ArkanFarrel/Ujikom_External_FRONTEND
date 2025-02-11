@@ -3,6 +3,7 @@ import { useNavigate } from "react-router";
 import Footer from "./Footer.jsx";
 import PropertyCard from "./Propertycard.jsx";
 import FeatureCard from "./Featurecard.jsx";
+import gambar from "../img/logo-rku.png";
 
 const handleScrollToTestimonial = () => {
   const testimonialSection = document.getElementById("testimonials");
@@ -11,9 +12,9 @@ const handleScrollToTestimonial = () => {
   }
 };
 const handleScrollToFeaturecard = () => {
-  const testimonialSection = document.getElementById("featurecard");
-  if (testimonialSection) {
-    testimonialSection.scrollIntoView({ behavior: "smooth" });
+  const featurecard = document.getElementById("featurecard");
+  if (featurecard) {
+    featurecard.scrollIntoView({ behavior: "smooth" });
   }
 };
 const handleScrollTolayanan = () => {
@@ -37,10 +38,12 @@ const featureCards = [
   {
     icon: "https://storage.googleapis.com/seo-cms/assets/Jual_Propertimu_749b908321/Jual_Propertimu_749b908321.svg",
     title: "Jual Propertimu",
+    onclick: handleScrollToFeaturecard,
   },
   {
     icon: "https://storage.googleapis.com/seo-cms/assets/carikan_properti_d35e238a07/carikan_properti_d35e238a07.svg",
     title: "Carikan Properti",
+    onclick: handleScrollToFeaturecard,
   },
   {
     icon: "https://storage.googleapis.com/seo-cms/assets/simulasi_kpr_105d56534d/simulasi_kpr_105d56534d.svg",
@@ -132,16 +135,14 @@ const Landingpage = () => {
 
   return (
     <>
-      <nav className="bg-gray-800 sticky top-0 z-50 w-full">
+      <nav className="bg-white-100 sticky top-0 z-50 w-full">
         <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
           <div className="relative flex h-16 items-center justify-between">
+            {/* Logo */}
             <div className="flex items-center">
-              <img
-                className="h-10 w-10 rounded-full border-2 border-white p-0.5"
-                src=""
-                alt=""
-              />
+              <img src={gambar} alt="Logo" className="h-10 w-auto" />
             </div>
+
             <div className="flex flex-1 items-center justify-start sm:items-stretch sm:justify-start">
               <div className="hidden sm:ml-6 sm:flex space-x-4">
                 {["Home", "About us", "Dijual", "Disewakan"].map((item) => (
@@ -149,13 +150,15 @@ const Landingpage = () => {
                   <a
                     key={item}
                     href="#"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                    className="text-gray-300 hover:bg-green-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                   >
                     {item}
                   </a>
                 ))}
               </div>
             </div>
+
+            {/* Tombol Login & Register */}
             <div className="flex space-x-4">
               <button
                 onClick={handleLogin}
@@ -220,7 +223,7 @@ const Landingpage = () => {
           ))}
         </div>
       </div>
-      <div style={{ width: "100%"  }}>
+      <div style={{ width: "100%" }}>
         <iframe
           title="Google Maps"
           width="100%"
@@ -233,7 +236,10 @@ const Landingpage = () => {
         ></iframe>
       </div>
 
-      <div id="layanan" className="bg-gray-50 rounded-lg shadow-md p-6 mx-auto w-full max-w-2xl my-10">
+      <div
+        id="layanan"
+        className="bg-gray-50 rounded-lg shadow-md p-6 mx-auto w-full max-w-2xl my-10"
+      >
         <h2 className="text-2xl font-semibold text-gray-800 mb-4">
           Layanan Pengaduan Konsumen
         </h2>
