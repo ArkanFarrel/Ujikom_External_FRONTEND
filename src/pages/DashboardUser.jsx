@@ -19,12 +19,9 @@ import SidebarComponent from "../components/Sidebar.jsx";
 import { Box, Pagination } from "@mui/material";
 
 const columns = [
-  { id: "name", label: "Property Name", minWidth: 170 },
-  { id: "price", label: "Price", minWidth: 170 },
-  { id: "location", label: "Location", minWidth: 170 },
-  { id: "status", label: "Status", minWidth: 170 },
-  { id: "description", label: "Description", minWidth: 120 },
-  { id: "action", label: "Action", minWidth: 100, align: "center" },
+  { id: "name", label: "Username", minWidth: 170 },
+  { id: "email", label: "Email", minWidth: 170 },
+  { id: "password", label: "Password", minWidth: 170 },
 ];
 
 const Dashboard = () => {
@@ -34,10 +31,8 @@ const Dashboard = () => {
   const [confirmOpen, setConfirmOpen] = useState(false);
   const [newProperty, setNewProperty] = useState({
     name: "",
-    price: "",
-    location: "",
-    status: "",
-    description: "",
+    email: "",
+    password: "",
   });
   const [deleteId, setDeleteId] = useState(null);
   const [editProperty, setEditProperty] = useState(null);
@@ -46,7 +41,7 @@ const Dashboard = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:3008/property");
+      const response = await axios.get("http://localhost:3008/user");
       setRows(response.data);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -57,7 +52,7 @@ const Dashboard = () => {
   const handleSubmit = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:3008/property/post",
+        "http://localhost:3008/user/post",
         newProperty
       );
       handleClose();
@@ -70,17 +65,15 @@ const Dashboard = () => {
   const handleEditSubmit = async () => {
     try {
       await axios.put(
-        `http://localhost:3008/property/update/${editProperty}`,
+        `http://localhost:3008/user/update/${editProperty}`,
         newProperty
       );
       setEditOpen(false);
       fetchData();
       setNewProperty({
         name: "",
-        price: "",
-        location: "",
-        status: "",
-        description: "",
+        email: "",
+        password: "",
       });
       setEditProperty(null);
     } catch (error) {
@@ -95,7 +88,7 @@ const Dashboard = () => {
         return;
       }
 
-      const deleteUrl = `http://localhost:3008/property/delete/${deleteId}`;
+      const deleteUrl = `http://localhost:3008/user/delete/${deleteId}`;
       console.log(`Menghapus Data Property Dengan ID: ${deleteId}`);
       console.log(`Delete URL: ${deleteUrl}`);
       await axios.delete(deleteUrl);
@@ -138,10 +131,8 @@ const Dashboard = () => {
     setOpen(false);
     setNewProperty({
       name: "",
-      price: "",
-      location: "",
-      status: "",
-      description: "",
+      email: "",
+      password: "",
     });
   };
 
@@ -153,10 +144,8 @@ const Dashboard = () => {
     setEditProperty(row.id);
     setNewProperty({
       name: row.name,
-      price: row.price,
-      location: row.location,
-      status: row.status,
-      description: row.description,
+      email: row.email,
+      password: row.password,
     });
     setEditOpen(true);
   };
@@ -276,7 +265,7 @@ const Dashboard = () => {
             name="price"
             label="Price"
             fullWidth
-            value={newProperty.price}
+            value={newProperty.email}
             onChange={handleChange}
           />
           <TextField
@@ -284,23 +273,7 @@ const Dashboard = () => {
             name="location"
             label="Location"
             fullWidth
-            value={newProperty.location}
-            onChange={handleChange}
-          />
-          <TextField
-            margin="dense"
-            name="status"
-            label="Status"
-            fullWidth
-            value={newProperty.status}
-            onChange={handleChange}
-          />
-          <TextField
-            margin="dense"
-            name="description"
-            label="Description"
-            fullWidth
-            value={newProperty.description}
+            value={newProperty.password}
             onChange={handleChange}
           />
         </DialogContent>
@@ -328,7 +301,7 @@ const Dashboard = () => {
             name="price"
             label="Price"
             fullWidth
-            value={newProperty.price}
+            value={newProperty.email}
             onChange={handleChange}
           />
           <TextField
@@ -336,23 +309,7 @@ const Dashboard = () => {
             name="location"
             label="Location"
             fullWidth
-            value={newProperty.location}
-            onChange={handleChange}
-          />
-          <TextField
-            margin="dense"
-            name="status"
-            label="Status"
-            fullWidth
-            value={newProperty.status}
-            onChange={handleChange}
-          />
-          <TextField
-            margin="dense"
-            name="description"
-            label="Description"
-            fullWidth
-            value={newProperty.description}
+            value={newProperty.password}
             onChange={handleChange}
           />
         </DialogContent>

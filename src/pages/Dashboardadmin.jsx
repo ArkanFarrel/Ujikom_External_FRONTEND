@@ -19,8 +19,8 @@ import SidebarComponent from "../components/Sidebar.jsx";
 import { Box } from "@mui/material";
 
 const columns = [
-  { id: "name", label: "Admin Name", minWidth: 170 },
   { id: "email", label: "Email", minWidth: 170 },
+  { id: "password", label: "Password", minWidth: 170 },
   { id: "action", label: "Action", minWidth: 100, align: "center" },
 ];
 
@@ -29,7 +29,7 @@ const Dashboardadmin = () => {
   const [open, setOpen] = useState(false);
   const [editOpen, setEditOpen] = useState(false);
   const [confirmOpen, setConfirmOpen] = useState(false);
-  const [newAdmin, setNewAdmin] = useState({ name: "", email: "" });
+  const [newAdmin, setNewAdmin] = useState({ email: "", password: "" });
   const [deleteId, setDeleteId] = useState(null);
   const [editAdmin, setEditAdmin] = useState(null);
 
@@ -64,7 +64,10 @@ const Dashboardadmin = () => {
       );
       setEditOpen(false);
       fetchData();
-      setNewAdmin({ name: "", email: "" });
+      setNewAdmin({
+       email: "",
+       password: "",
+      });
       setEditAdmin(null);
     } catch (error) {
       console.error("Terjadi Kesalahan Update Data", error);
@@ -89,13 +92,6 @@ const Dashboardadmin = () => {
       setConfirmOpen(false);
     } catch (error) {
       if (error.response) {
-        if (error.response.status === 404) {
-          console.error("Data Admin Tidak Ditemukan");
-        } else {
-          console.error(
-            `Error: ${error.response.status} - ${error.response.statusText}`
-          );
-        }
       } else {
         console.error("Server Tidak Merespon", error.message);
       }
@@ -119,7 +115,7 @@ const Dashboardadmin = () => {
 
   const handleClose = () => {
     setOpen(false);
-    setNewAdmin({ name: "", email: "" });
+    setNewAdmin({ email: "", password: "" });
   };
 
   const handleChange = (e) => {
@@ -128,7 +124,7 @@ const Dashboardadmin = () => {
 
   const handleEditClick = (row) => {
     setEditAdmin(row.id);
-    setNewAdmin({ name: row.name, email: row.email });
+    setNewAdmin({ email: row.email, password: row.password });
     setEditOpen(true);
   };
 
@@ -217,18 +213,18 @@ const Dashboardadmin = () => {
           <TextField
             autoFocus
             margin="dense"
-            name="name"
-            label="Admin Name"
-            fullWidth
-            value={newAdmin.name}
-            onChange={handleChange}
-          />
-          <TextField
-            margin="dense"
             name="email"
             label="Email"
             fullWidth
             value={newAdmin.email}
+            onChange={handleChange}
+          />
+          <TextField
+            margin="dense"
+            name="password"
+            label="Password"
+            fullWidth
+            value={newAdmin.password}
             onChange={handleChange}
           />
         </DialogContent>
@@ -245,18 +241,18 @@ const Dashboardadmin = () => {
           <TextField
             autoFocus
             margin="dense"
-            name="name"
-            label="Admin Name"
-            fullWidth
-            value={newAdmin.name}
-            onChange={handleChange}
-          />
-          <TextField
-            margin="dense"
             name="email"
             label="Email"
             fullWidth
             value={newAdmin.email}
+            onChange={handleChange}
+          />
+          <TextField
+            margin="dense"
+            name="password"
+            label="Password"
+            fullWidth
+            value={newAdmin.password}
             onChange={handleChange}
           />
         </DialogContent>

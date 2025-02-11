@@ -29,6 +29,16 @@ const data = [
       parent_id: 5,
       name: "Admin",
     },
+    {
+      id: 7,
+      parent_id: null,
+      name: "User",
+    },
+    {
+      id: 8,
+      parent_id: 7,
+      name: "User",
+    },
     // {
     //   id: 3,
     //   parent_id: null,

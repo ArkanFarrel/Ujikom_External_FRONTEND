@@ -1,5 +1,6 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-import { useNavigate } from "react-router";
+// import { useNavigate } from "react-router";
 import Footer from "./Footer.jsx";
 import PropertyCard from "./Propertycard.jsx";
 import FeatureCard from "./Featurecard.jsx";
@@ -10,7 +11,7 @@ const handleScrollToTestimonial = () => {
     testimonialSection.scrollIntoView({ behavior: "smooth" });
   }
 };
-const handleScrollToFeaturecard = () => {
+const handleScrollTofeaturecard = () => {
   const testimonialSection = document.getElementById("featurecard");
   if (testimonialSection) {
     testimonialSection.scrollIntoView({ behavior: "smooth" });
@@ -32,7 +33,7 @@ const featureCards = [
   {
     icon: "https://storage.googleapis.com/seo-cms/assets/iklankan_properti_5f17f9d285/iklankan_properti_5f17f9d285.svg",
     title: "Iklankan Properti",
-    onclick: handleScrollToFeaturecard,
+    onclick: handleScrollTofeaturecard,
   },
   {
     icon: "https://storage.googleapis.com/seo-cms/assets/Jual_Propertimu_749b908321/Jual_Propertimu_749b908321.svg",
@@ -125,54 +126,65 @@ const testimonials = [
   },
 ];
 
-const Landingpage = () => {
-  const navigate = useNavigate();
-  const handleLogin = () => navigate("/login");
-  const handleRegister = () => navigate("/register");
+const Homepage = () => {
 
   return (
     <>
       <nav className="bg-gray-800 sticky top-0 z-50 w-full">
-        <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-          <div className="relative flex h-16 items-center justify-between">
-            <div className="flex items-center">
-              <img
-                className="h-10 w-10 rounded-full border-2 border-white p-0.5"
-                src=""
-                alt=""
-              />
-            </div>
-            <div className="flex flex-1 items-center justify-start sm:items-stretch sm:justify-start">
-              <div className="hidden sm:ml-6 sm:flex space-x-4">
-                {["Home", "About us", "Dijual", "Disewakan"].map((item) => (
-                  // eslint-disable-next-line jsx-a11y/anchor-is-valid
-                  <a
-                    key={item}
-                    href="#"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
-                  >
-                    {item}
-                  </a>
-                ))}
-              </div>
-            </div>
-            <div className="flex space-x-4">
-              <button
-                onClick={handleLogin}
-                className="text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md text-sm font-medium transition duration-300 ease-in-out"
-              >
-                Login
-              </button>
-              <button
-                onClick={handleRegister}
-                className="text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md text-sm font-medium transition duration-300 ease-in-out"
-              >
-                Register
-              </button>
-            </div>
-          </div>
+  <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+    <div className="relative flex h-16 items-center justify-between">
+      <div className="flex items-center">
+        <img
+          className="h-10 w-10 rounded-full border-2 border-white p-0.5"
+          src=""
+          alt=""
+        />
+      </div>
+      <div className="flex flex-1 items-center justify-start sm:items-stretch sm:justify-start">
+        <div className="hidden sm:ml-6 sm:flex space-x-4">
+          {["Home", "About us", "Dijual", "Disewakan"].map((item) => (
+            <a
+              key={item}
+              href="#"
+              className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+            >
+              {item}
+            </a>
+          ))}
         </div>
-      </nav>
+      </div>
+      <div className="flex items-center space-x-4">
+
+        {/* Icon Keranjang Belanja */}
+        <button
+          className="relative text-gray-300 hover:text-white"
+          aria-label="Keranjang Belanja"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={2}
+            stroke="currentColor"
+            className="w-6 h-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M3 3h2l.4 2M7 13h10l3.4-8H6.4M7 13L5.4 6M7 13l-1.6 8M17 13l1.6 8M9 21h6"
+            />
+          </svg>
+          
+          {/* Badge jumlah item di keranjang */}
+          <span className="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-red-600 rounded-full transform translate-x-2 -translate-y-2">
+            
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
 
       <div id="featurecard" className="mt-10 flex flex-col items-center">
         <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4 w-full max-w-6xl px-4">
@@ -196,7 +208,7 @@ const Landingpage = () => {
             Lihat Selengkapnya
           </button>
         </div>
-        <div className="flex p-4 space-x-2">
+        <div className="flex p-4 space-x-4">
           {propertyData.map((property, index) => (
             <PropertyCard key={index} {...property} />
           ))}
@@ -220,6 +232,7 @@ const Landingpage = () => {
           ))}
         </div>
       </div>
+
       <div style={{ width: "100%"  }}>
         <iframe
           title="Google Maps"
@@ -250,6 +263,7 @@ const Landingpage = () => {
               </a>
             </p>
           </div>
+
           <div className="text-gray-700">
             <h3 className="text-lg font-medium">
               Direktorat Jenderal Perlindungan Konsumen dan Tertib Niaga (Ditjen
@@ -269,4 +283,4 @@ const Landingpage = () => {
   );
 };
 
-export default Landingpage;
+export default Homepage;
