@@ -111,7 +111,7 @@ const testimonials = [
     name: "Danang Tri Wibowo",
     role: "Agen",
     feedback:
-      "Rumah123 membantu saya mendapatkan leads dari customer dengan optimal. Dengan memanfaatkan Feature Listing, calon pembeli datang setiap harinya.",
+      "Rumahmu membantu saya mendapatkan leads dari customer dengan optimal. Dengan memanfaatkan Feature Listing, calon pembeli datang setiap harinya.",
   },
   {
     name: "Ananta Aji Wiguna",
@@ -123,7 +123,7 @@ const testimonials = [
     name: "Adeline Puspa",
     role: "Agen",
     feedback:
-      "Saya mendapatkan lebih banyak buyer setelah mengiklankan properti di Rumah123. Interface Rumah123 memudahkan saya mengatur promosi listing dengan baik.",
+      "Saya mendapatkan lebih banyak buyer setelah mengiklankan properti di Rumahmu. Interface Rumahmu memudahkan saya mengatur promosi listing dengan baik.",
   },
 ];
 
@@ -375,7 +375,7 @@ const Homepage = () => {
 
       <div id="testimonials" className="bg-gray-100 py-10 mt-10">
         <h2 className="text-2xl font-bold text-center mb-7">
-          Kata Mereka yang Sudah Menggunakan Layanan Rumahku
+          Kata Mereka yang Sudah Menggunakan Layanan Rumahmu
         </h2>
         <div className="flex justify-center flex-wrap space-x-4 px-6">
           {testimonials.map((testimonial, index) => (
@@ -415,12 +415,12 @@ const Homepage = () => {
         <div className="space-y-4">
           <div className="text-gray-700">
             <h3 className="text-lg font-medium">
-              PT Web Marketing Rumahku Indonesia
+              PT Web Marketing Rumahmu Indonesia
             </h3>
             <p>
               Email:{" "}
               <a href="kosong" className="text-blue-600 hover:underline">
-                infopengaduan@rumahku.com
+                infopengaduan@rumahmu.com
               </a>
             </p>
           </div>
