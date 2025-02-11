@@ -14,7 +14,6 @@ const Listrumah = ({ id, title, type, price, location, status, description, onDe
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-
   const handleDeleteClick = () => {
     setConfirmOpen(true);
   };

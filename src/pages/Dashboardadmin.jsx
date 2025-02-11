@@ -60,7 +60,7 @@ const Dashboardadmin = () => {
     try {
       await axios.put(
         `http://localhost:3008/admin/update/${editAdmin}`,
-        newAdmin
+        editAdmin
       );
       setEditOpen(false);
       fetchData();
