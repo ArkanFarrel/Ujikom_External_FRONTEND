@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
+import gambar from "../img/logo-rku.png"
 
 const Footer = () => {
   return (
@@ -7,18 +8,7 @@ const Footer = () => {
       <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
         <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left md:mt-0 mt-10">
           <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              className="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full"
-              viewBox="0 0 24 24"
-            >
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-            </svg>
+            <img src={gambar} alt="" className="w-10 h-10 text-white p-2 bg-green-500 rounded-full" />
             <span className="ml-3 text-xl">Rumahku</span>
           </a>
           <p className="mt-2 text-sm text-gray-500">
@@ -32,17 +22,17 @@ const Footer = () => {
             </h2>
             <nav className="list-none mb-10">
               <li>
-                <a className="text-gray-600 hover:text-gray-800" href="">
+                <a className="text-gray-600 hover:text-gray-800" href="#/home">
                   Tentang Kami
                 </a>
               </li>
               <li>
-                <a className="text-gray-600 hover:text-gray-800" href="">
+                <a className="text-gray-600 hover:text-gray-800" href="#/home">
                   Produk & Layanan
                 </a>
               </li>
               <li>
-                <a className="text-gray-600 hover:text-gray-800" href="">Partner</a>
+                <a className="text-gray-600 hover:text-gray-800" href="#/home">Partner</a>
               </li>
             </nav>
           </div>
@@ -52,16 +42,16 @@ const Footer = () => {
             </h2>
             <nav className="list-none mb-10">
               <li>
-                <a className="text-gray-600 hover:text-gray-800" href="">First Link</a>
+                <a className="text-gray-600 hover:text-gray-800" href="#/home">First Link</a>
               </li>
               <li>
-                <a className="text-gray-600 hover:text-gray-800" href="">Second Link</a>
+                <a className="text-gray-600 hover:text-gray-800" href="#/home">Second Link</a>
               </li>
               <li>
-                <a className="text-gray-600 hover:text-gray-800" href="">Third Link</a>
+                <a className="text-gray-600 hover:text-gray-800" href="#/home">Third Link</a>
               </li>
               <li>
-                <a className="text-gray-600 hover:text-gray-800" href="">Fourth Link</a>
+                <a className="text-gray-600 hover:text-gray-800" href="#/home">Fourth Link</a>
               </li>
             </nav>
           </div>
@@ -71,12 +61,12 @@ const Footer = () => {
             </h2>
             <nav className="list-none mb-10">
               <li>
-                <a className="text-gray-600 hover:text-gray-800" href="">
+                <a className="text-gray-600 hover:text-gray-800" href="#/home">
                   Iklankan Property
                 </a>
               </li>
               <li>
-                <a className="text-gray-600 hover:text-gray-800" href="">KPR</a>
+                <a className="text-gray-600 hover:text-gray-800" href="#/home">KPR</a>
               </li>
             </nav>
           </div>
@@ -86,17 +76,17 @@ const Footer = () => {
             </h2>
             <nav className="list-none mb-10">
               <li>
-                <a className="text-gray-600 hover:text-gray-800" href="">
+                <a className="text-gray-600 hover:text-gray-800" href="#/home">
                   Kebijakan Privasi
                 </a>
               </li>
               <li>
-                <a className="text-gray-600 hover:text-gray-800" href="">
+                <a className="text-gray-600 hover:text-gray-800" href="#/home">
                   Syarat Penggunaan
                 </a>
               </li>
               <li>
-                <a className="text-gray-600 hover:text-gray-800" href="">
+                <a className="text-gray-600 hover:text-gray-800" href="#/home">
                   Syarat Penggunaan Agen
                 </a>
               </li>
@@ -109,7 +99,7 @@ const Footer = () => {
           <p className="text-gray-500 text-sm text-center sm:text-left">
             © 2024 Rumahku —
             <a
-              href="https://twitter.com/knyttneve"
+              href="#/home"
               rel="noopener noreferrer"
               className="text-gray-600 ml-1"
               target="_blank"
@@ -118,7 +108,7 @@ const Footer = () => {
             </a>
           </p>
           <span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
-            <a className="text-gray-500" href="">
+            <a className="text-gray-500" href="#/home">
               <svg
                 fill="currentColor"
                 strokeLinecap="round"
@@ -130,7 +120,7 @@ const Footer = () => {
                 <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
               </svg>
             </a>
-            <a className="ml-3 text-gray-500" href="">
+            <a className="ml-3 text-gray-500" href="#/home">
               <svg
                 fill="currentColor"
                 strokeLinecap="round"
@@ -142,7 +132,7 @@ const Footer = () => {
                 <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
               </svg>
             </a>
-            <a className="ml-3 text-gray-500" href="">
+            <a className="ml-3 text-gray-500" href="#/home">
               <svg
                 fill="none"
                 stroke="currentColor"
@@ -156,7 +146,7 @@ const Footer = () => {
                 <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
               </svg>
             </a>
-            <a className="ml-3 text-gray-500" href="">
+            <a className="ml-3 text-gray-500" href="#/home">
               <svg
                 fill="currentColor"
                 stroke="currentColor"

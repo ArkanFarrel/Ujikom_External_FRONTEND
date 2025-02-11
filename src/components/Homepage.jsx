@@ -175,7 +175,7 @@ const Homepage = () => {
             <div className="flex flex-1 items-center justify-start sm:items-stretch sm:justify-start">
               <div className="hidden sm:ml-6 sm:flex space-x-4">
                 <a
-                  href=""
+                  href="#/home"
                   className="text-gray-700 hover:bg-green-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                 >
                   Home
