@@ -129,6 +129,7 @@ const testimonials = [
 
 const Homepage = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+    const [dropdownOpen, setDropdownOpen] = useState(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -145,6 +146,19 @@ const Homepage = () => {
     };
   }, []);
 
+    useEffect(() => {
+      const handleClickOutside = (event) => {
+        if (!event.target.closest(".dropdown")) {
+          setDropdownOpen(null);
+        }
+      };
+  
+      document.addEventListener("click", handleClickOutside);
+      return () => {
+        document.removeEventListener("click", handleClickOutside);
+      };
+    }, []);
+
   return (
     <>
       <nav
@@ -160,17 +174,76 @@ const Homepage = () => {
 
             <div className="flex flex-1 items-center justify-start sm:items-stretch sm:justify-start">
               <div className="hidden sm:ml-6 sm:flex space-x-4">
-                {["Home", "About us", "Dijual", "Disewakan"].map((item) => (
-                  // eslint-disable-next-line jsx-a11y/anchor-is-valid
-                  <a
-                    key={item}
-                    onClick={(e) => e.preventDefault()}
-                    href=""
+                <a
+                  href=""
+                  className="text-gray-700 hover:bg-green-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                >
+                  Home
+                </a>
+                <a
+                  href=""
+                  className="text-gray-700 hover:bg-green-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                >
+                  About us
+                </a>
+
+                <div className="relative dropdown">
+                  <button
+                    onClick={() =>
+                      setDropdownOpen(
+                        dropdownOpen === "dijual" ? null : "dijual"
+                      )
+                    }
                     className="text-gray-700 hover:bg-green-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                   >
-                    {item}
-                  </a>
-                ))}
+                    Dijual
+                  </button>
+                  {dropdownOpen === "dijual" && (
+                    <div className="absolute left-0 mt-2 w-48 bg-white shadow-md rounded-md py-2">
+                      {["Rumah", "Apartemen", "Ruko", "Tanah"].map((item) => (
+                        <a
+                          key={item}
+                          // href={`/${item.toLowerCase()}`}
+
+                          // sementara seperti dibawah ini
+                          href="#/home"
+                          className="block px-4 py-2 text-gray-700 hover:bg-green-200 transition"
+                        >
+                          {item}
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                <div className="relative dropdown">
+                  <button
+                    onClick={() =>
+                      setDropdownOpen(
+                        dropdownOpen === "disewakan" ? null : "disewakan"
+                      )
+                    }
+                    className="text-gray-700 hover:bg-green-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                  >
+                    Disewakan
+                  </button>
+                  {dropdownOpen === "disewakan" && (
+                    <div className="absolute left-0 mt-2 w-48 bg-white shadow-md rounded-md py-2">
+                      {["Rumah", "Apartemen", "Kost", "Ruko"].map((item) => (
+                        <a
+                          key={item}
+                          // href={`/${item.toLowerCase()}`}
+
+                          // sementara seperti dibawah ini
+                          href="#/home"
+                          className="block px-4 py-2 text-gray-700 hover:bg-green-200 transition"
+                        >
+                          {item}
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
             <div className="flex items-center space-x-4">
