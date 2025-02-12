@@ -208,7 +208,7 @@ const Homepage = () => {
         <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
           <div className="relative flex h-16 items-center justify-between">
             <div className="flex items-center">
-              <img src={gambar} alt="Logo" className="h-10 w-auto" />
+              <img src={gambar} alt="Logo" className="h-10 w-auto filter hue-rotate-[220deg]" />
             </div>
 
             <div className="flex flex-1 items-center justify-start sm:items-stretch sm:justify-start">
