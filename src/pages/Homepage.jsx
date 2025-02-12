@@ -5,6 +5,11 @@ import PropertyCard from "../components/Propertycard.jsx";
 import FeatureCard from "../components/Featurecard.jsx";
 import gambar from "../img/logo-rku.png";
 import axios from "axios";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 const handleScrollToTestimonial = () => {
   const testimonialSection = document.getElementById("testimonials");
@@ -312,21 +317,32 @@ const Homepage = () => {
             Lihat Selengkapnya
           </button>
         </div>
-        <div className="flex p-4 space-x-2">
-          {properties.length > 0 ? (
-            properties.map((property) => (
-              <PropertyCard
-                key={property.id}
-                title={property.name}
-                price={property.price}
-                location={property.location}
-                status={property.status || "-"}
-                description={property.description || "-"}
-              />
-            ))
-          ) : (
-            <p>Loading...</p>
-          )}
+        <div className="p-6">
+          <Swiper
+            modules={[Navigation, Pagination]}
+            slidesPerView={1}
+            spaceBetween={20}
+            navigation
+            pagination={{ clickable: true, el: ".swiper-pagination" }}
+            breakpoints={{
+              640: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+              1280: { slidesPerView: 4 },
+            }}
+            className="w-full"
+          >
+            {properties.map((property) => (
+              <SwiperSlide key={property.id} className="flex justify-center">
+                <PropertyCard
+                  title={property.name}
+                  price={property.price}
+                  location={property.location}
+                  status={property.status || "-"}
+                  description={property.description || "-"}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </div>
 
