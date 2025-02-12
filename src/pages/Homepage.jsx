@@ -62,6 +62,7 @@ const featureCards = [
   {
     icon: "https://storage.googleapis.com/seo-cms/assets/carikan_properti_d35e238a07/carikan_properti_d35e238a07.svg",
     title: "Carikan Properti",
+    onclick: handleScrollTofeaturecard,
   },
   {
     icon: "https://storage.googleapis.com/seo-cms/assets/simulasi_kpr_105d56534d/simulasi_kpr_105d56534d.svg",
