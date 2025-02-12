@@ -139,10 +139,11 @@ const services = [
   },
 ];
 
-const Landingpage = () => {
+const Landingpage = ({ cartItems = [] }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(null);
   const [properties, setProperties] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -277,7 +278,7 @@ const Landingpage = () => {
               </div>
             </div>
 
-            <div className="flex space-x-4">
+            <div className="flex items-center space-x-6">
               <button
                 onClick={handleLogin}
                 className="flex items-center gap-2 text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md text-sm font-medium transition duration-300 ease-in-out"
@@ -292,6 +293,71 @@ const Landingpage = () => {
                 <IoPerson className="text-lg" />
                 <span>Register</span>
               </button>
+              <div className="relative mt-1">
+                {/* Icon Keranjang Belanja */}
+                <button
+                  className="relative hover:text-blue-600"
+                  aria-label="Keranjang Belanja"
+                  onClick={() => setIsOpen(!isOpen)}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={2}
+                    stroke="currentColor"
+                    className="w-6 h-6"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M3 3h2l.4 2M7 13h10l3.4-8H6.4M7 13L5.4 6M7 13l-1.6 8M17 13l1.6 8M9 21h6"
+                    />
+                  </svg>
+
+                  {/* Badge jumlah item di keranjang */}
+                  {cartItems.length > 0 && (
+                    <span className="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-red-600 rounded-full transform translate-x-2 -translate-y-2">
+                      {cartItems.length}
+                    </span>
+                  )}
+                </button>
+
+                {/* Dropdown Keranjang */}
+                {isOpen && (
+                  <div className="absolute right-0 mt-2 w-64 bg-white shadow-lg rounded-lg overflow-hidden z-50">
+                    <div className="p-4 border-b">
+                      <h3 className="text-lg font-semibold">
+                        Keranjang Belanja
+                      </h3>
+                    </div>
+                    <ul className="max-h-60 overflow-y-auto">
+                      {cartItems.length > 0 ? (
+                        cartItems.map((item, index) => (
+                          <li
+                            key={index}
+                            className="flex justify-between p-3 border-b"
+                          >
+                            <span className="text-sm">{item.title}</span>
+                            <span className="text-sm font-bold">
+                              {item.price}
+                            </span>
+                          </li>
+                        ))
+                      ) : (
+                        <li className="p-3 text-center text-gray-500">
+                          Keranjang kosong
+                        </li>
+                      )}
+                    </ul>
+                    <div className="p-4">
+                      <button className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">
+                        Checkout
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>

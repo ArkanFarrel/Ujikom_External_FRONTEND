@@ -11,6 +11,7 @@ import Forgotpassword from './pages/Forgotpassword.jsx';
 import Dashboarduser from './pages/DashboardUser.jsx';
 import Homepage from './pages/Homepage.jsx';
 import DashboardTransaction from './pages/DashboardTransaction.jsx';
+import DashboardUlasan from './pages/DashboardUlasan.jsx';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/admin" element={<Dashboardadmin />} />
         <Route path="/user" element={<Dashboarduser />} />
         <Route path="/transaction" element={<DashboardTransaction />} />
+        <Route path="/ulasan" element={<DashboardUlasan />} />
         <Route path="/forgot-password" element={<Forgotpassword />} />
       </Routes>
     </Router>

@@ -136,10 +136,11 @@ const services = [
   },
 ];
 
-const Homepage = () => {
+const Homepage = ({ cartItems = [] }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(null);
   const [properties, setProperties] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -273,11 +274,12 @@ const Homepage = () => {
                 </div>
               </div>
             </div>
-            <div className="flex items-center space-x-4">
+            <div className="relative">
               {/* Icon Keranjang Belanja */}
               <button
-                className="relative hover:text-green"
+                className="relative hover:text-blue-600"
                 aria-label="Keranjang Belanja"
+                onClick={() => setIsOpen(!isOpen)}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -295,8 +297,45 @@ const Homepage = () => {
                 </svg>
 
                 {/* Badge jumlah item di keranjang */}
-                <span className="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-red-600 rounded-full transform translate-x-2 -translate-y-2"></span>
+                {cartItems.length > 0 && (
+                  <span className="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-red-600 rounded-full transform translate-x-2 -translate-y-2">
+                    {cartItems.length}
+                  </span>
+                )}
               </button>
+
+              {/* Dropdown Keranjang */}
+              {isOpen && (
+                <div className="absolute right-0 mt-2 w-64 bg-white shadow-lg rounded-lg overflow-hidden z-50">
+                  <div className="p-4 border-b">
+                    <h3 className="text-lg font-semibold">Keranjang Belanja</h3>
+                  </div>
+                  <ul className="max-h-60 overflow-y-auto">
+                    {cartItems.length > 0 ? (
+                      cartItems.map((item, index) => (
+                        <li
+                          key={index}
+                          className="flex justify-between p-3 border-b"
+                        >
+                          <span className="text-sm">{item.title}</span>
+                          <span className="text-sm font-bold">
+                            {item.price}
+                          </span>
+                        </li>
+                      ))
+                    ) : (
+                      <li className="p-3 text-center text-gray-500">
+                        Keranjang kosong
+                      </li>
+                    )}
+                  </ul>
+                  <div className="p-4">
+                    <button className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">
+                      Checkout
+                    </button>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -320,7 +359,10 @@ const Homepage = () => {
           <h2 className="text-2xl font-bold text-gray-800">
             Rekomendasi Sesuai Pencarianmu
           </h2>
-          <button onClick={handleScrollTolihat} className="text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md text-sm font-medium transition duration-300 ease-in-out">
+          <button
+            onClick={handleScrollTolihat}
+            className="text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md text-sm font-medium transition duration-300 ease-in-out"
+          >
             Lihat Selengkapnya
           </button>
         </div>
