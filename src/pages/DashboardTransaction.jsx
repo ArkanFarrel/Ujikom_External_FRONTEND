@@ -86,12 +86,12 @@ const DashboardTransaction = () => {
   const handleConfirmDelete = async () => {
     try {
       if (!deleteId) {
-        console.error("Invalid property ID");
+        console.error("Invalid Transaction ID");
         return;
       }
 
       const deleteUrl = `http://localhost:3008/transaction/delete/${deleteId}`;
-      console.log(`Menghapus Data Property Dengan ID: ${deleteId}`);
+      console.log(`Menghapus Data Transaction Dengan ID: ${deleteId}`);
       console.log(`Delete URL: ${deleteUrl}`);
       await axios.delete(deleteUrl);
 
@@ -102,7 +102,7 @@ const DashboardTransaction = () => {
     } catch (error) {
       if (error.response) {
         if (error.response.status === 404) {
-          console.error("Property Tidak Ditemukan");
+          console.error("Data Transaction Tidak Ditemukan");
         } else {
           console.error(
             `Error: ${error.response.status} - ${error.response.statusText}`
@@ -118,7 +118,7 @@ const DashboardTransaction = () => {
 
   const handleDeleteClick = (id) => {
     if (!id) {
-      console.error("Invalid property ID");
+      console.error("Invalid Transaction ID");
       return;
     }
     setDeleteId(id);
@@ -132,7 +132,7 @@ const DashboardTransaction = () => {
   const handleClose = () => {
     setOpen(false);
     setNewProperty({
-    TransactionDate: "",
+      TransactionDate: "",
       Status: "",
       Agent: "",
     });
@@ -145,7 +145,7 @@ const DashboardTransaction = () => {
   const handleEditClick = (row) => {
     setEditProperty(row.id);
     setNewProperty({
-        TransactionDate: row.TransactionDate,
+      TransactionDate: row.TransactionDate,
       Status: row.Status,
       Agent: row.Agent,
     });
@@ -170,7 +170,10 @@ const DashboardTransaction = () => {
     fetchData();
   }, []);
 
-  const paginatedRows = rows.slice((page - 1) * rowsPerPage, page * rowsPerPage);
+  const paginatedRows = rows.slice(
+    (page - 1) * rowsPerPage,
+    page * rowsPerPage
+  );
 
   return (
     <div className="flex">
@@ -249,31 +252,35 @@ const DashboardTransaction = () => {
         </Paper>
       </Box>
 
-      {/* Popup add new Property */}
+      {/* Popup add new Transaction */}
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Add New Property</DialogTitle>
+        <DialogTitle>Add New Transaction</DialogTitle>
         <DialogContent>
           <TextField
             autoFocus
             margin="dense"
-            name="name"
-            label="Property Name"
+            name="date"
+            label="Transaction Date"
+            type="date"
             fullWidth
-            value={newProperty.name}
+            value={newProperty.date}
             onChange={handleChange}
+            InputLabelProps={{
+              shrink: true, 
+            }}
           />
           <TextField
             margin="dense"
-            name="price"
-            label="Price"
+            name="name"
+            label="Status"
             fullWidth
             value={newProperty.email}
             onChange={handleChange}
           />
           <TextField
             margin="dense"
-            name="location"
-            label="Location"
+            name="name"
+            label="Agent"
             fullWidth
             value={newProperty.password}
             onChange={handleChange}
@@ -289,27 +296,31 @@ const DashboardTransaction = () => {
       <Dialog open={editOpen} onClose={() => setEditOpen(false)}>
         <DialogTitle>Edit Property</DialogTitle>
         <DialogContent>
-          <TextField
+        <TextField
             autoFocus
             margin="dense"
-            name="name"
-            label="Property Name"
+            name="date"
+            label="Transaction Date"
+            type="date"
             fullWidth
-            value={newProperty.name}
+            value={newProperty.date}
             onChange={handleChange}
+            InputLabelProps={{
+              shrink: true, 
+            }}
           />
           <TextField
             margin="dense"
-            name="price"
-            label="Price"
+            name="name"
+            label="Status"
             fullWidth
             value={newProperty.email}
             onChange={handleChange}
           />
           <TextField
             margin="dense"
-            name="location"
-            label="Location"
+            name="name"
+            label="Agent"
             fullWidth
             value={newProperty.password}
             onChange={handleChange}
@@ -325,7 +336,7 @@ const DashboardTransaction = () => {
       <Dialog open={confirmOpen} onClose={handleCancelDelete}>
         <DialogTitle>Confirm Delete</DialogTitle>
         <DialogContent>
-          <p>Are you sure you want to delete this property?</p>
+          <p>Are you sure you want to delete this Data Transaction?</p>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleCancelDelete}>Cancel</Button>
