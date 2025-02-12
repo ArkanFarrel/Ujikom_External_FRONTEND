@@ -274,7 +274,7 @@ const Homepage = ({ cartItems = [] }) => {
                 </div>
               </div>
             </div>
-            <div className="relative">
+            <div className="relative mt-1">
               {/* Icon Keranjang Belanja */}
               <button
                 className="relative hover:text-blue-600"
