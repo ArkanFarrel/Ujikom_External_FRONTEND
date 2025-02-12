@@ -278,7 +278,7 @@ const Landingpage = ({ cartItems = [] }) => {
               </div>
             </div>
 
-            <div className="flex items-center space-x-6">
+            <div className="flex items-center space-x-5">
               <button
                 onClick={handleLogin}
                 className="flex items-center gap-2 text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md text-sm font-medium transition duration-300 ease-in-out"
