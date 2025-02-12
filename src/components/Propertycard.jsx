@@ -1,15 +1,26 @@
 import React from "react";
 
-const PropertyCard = ({
-  price,
-  pricePeriod,
-  title,
-  location,
-  bedrooms,
-  bathrooms,
-  landSize,
-  buildingSize,
-}) => (
+const formatPrice = (price) => {
+  return new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+  }).format(price);
+};
+
+const getStatusColor = (status) => {
+  switch (status) {
+    case "available":
+      return "text-green-600";
+    case "sold":
+      return "text-red-600";
+    case "rented":
+      return "text-blue-600";
+    default:
+      return "text-gray-600";
+  }
+};
+
+const PropertyCard = ({ title, price, location, status, description }) => (
   <div className="max-w-xs bg-white shadow-lg rounded-lg overflow-hidden mx-8">
     <img
       className="w-full h-48 object-cover"
@@ -17,18 +28,13 @@ const PropertyCard = ({
       alt="property"
     />
     <div className="p-4">
-      <h3 className="text-lg font-semibold text-gray-800">{price}</h3>
-      <p className="text-sm text-gray-500">{pricePeriod}</p>
-      <p className="mt-2 text-gray-800">{title}</p>
+      <h3 className="text-lg font-semibold text-gray-800">
+        {formatPrice(price)}
+      </h3>
+      <p className="text-sm font-bold {getStatusColor(status)}">{status.toUpperCase()}</p>
+      <p className="mt-2 text-gray-800 font-semibold">{title}</p>
       <p className="text-sm text-gray-500">{location}</p>
-      <div className="flex items-center mt-4 text-gray-700">
-        <span className="text-sm">{bedrooms} Kamar Tidur</span>
-        <span className="ml-4 text-sm">{bathrooms} Kamar Mandi</span>
-      </div>
-      <div className="flex items-center mt-2 text-gray-700">
-        <span className="text-sm">LT: {landSize} m²</span>
-        <span className="ml-4 text-sm">LB: {buildingSize} m²</span>
-      </div>
+      <p className="mt-2 text-sm text-gray-600">{description}</p>
     </div>
   </div>
 );

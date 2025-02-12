@@ -7,6 +7,7 @@ import FeatureCard from "../components/Featurecard.jsx";
 import gambar from "../img/logo-rku.png";
 import { IoLogInSharp } from "react-icons/io5";
 import { IoPerson } from "react-icons/io5";
+import axios from "axios";
 
 const handleScrollToTestimonial = () => {
   const testimonialSection = document.getElementById("testimonials");
@@ -179,6 +180,7 @@ const services = [
 const Landingpage = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(null);
+  const [properties, setProperties] = useState([]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -206,6 +208,19 @@ const Landingpage = () => {
     return () => {
       document.removeEventListener("click", handleClickOutside);
     };
+  }, []);
+
+  useEffect(() => {
+    const fetchProperties = async () => {
+      try {
+        const response = await axios.get("http://localhost:3008/property"); // Sesuaikan URL API
+        setProperties(response.data);
+      } catch (error) {
+        console.error("Error fetching properties:", error);
+      }
+    };
+
+    fetchProperties();
   }, []);
 
   const navigate = useNavigate();
@@ -342,10 +357,21 @@ const Landingpage = () => {
           </button>
         </div>
         <div className="flex p-4 space-x-2">
-          {propertyData.map((property, index) => (
-            <PropertyCard key={index} {...property} />
-          ))}
-        </div>
+      {properties.length > 0 ? (
+        properties.map((property) => (
+          <PropertyCard
+            key={property.id}
+            title={property.name}
+            price={property.price}
+            location={property.location}
+            status={property.status || "-"}
+            description={property.description || "-"}
+          />
+        ))
+      ) : (
+        <p>Loading...</p>
+      )}
+    </div>
       </div>
 
       <section className="bg-gray-100 py-16 px-4 text-center">
