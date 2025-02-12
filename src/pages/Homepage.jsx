@@ -4,6 +4,7 @@ import Footer from "../components/Footer.jsx";
 import PropertyCard from "../components/Propertycard.jsx";
 import FeatureCard from "../components/Featurecard.jsx";
 import gambar from "../img/logo-rku.png";
+import axios from "axios";
 
 const handleScrollToTestimonial = () => {
   const testimonialSection = document.getElementById("testimonials");
@@ -60,49 +61,6 @@ const featureCards = [
     icon: "https://storage.googleapis.com/core-asset/static/images/assets/quick-menu-others-icon.svg",
     title: "Lainnya",
     onclick: handleScrollTolayanan,
-  },
-];
-
-const propertyData = [
-  {
-    price: "Rp 400 Juta",
-    pricePeriod: "1 Jutaan per bulan",
-    title: "Rumah Dan Kosan Tembalang Dekat Universitas",
-    location: "Tembalang, Semarang",
-    bedrooms: 2,
-    bathrooms: 1,
-    landSize: 60,
-    buildingSize: 30,
-  },
-  {
-    price: "Rp 1,65 Miliar",
-    pricePeriod: "7 Jutaan per bulan",
-    title: "Rumah Besar 4+1 Kamar Pilihan Keluarga",
-    location: "Serpong Villa Melati Mas, Tangerang Selatan",
-    bedrooms: 4,
-    bathrooms: 2,
-    landSize: 90,
-    buildingSize: 120,
-  },
-  {
-    price: "Rp 28 Juta per tahun",
-    pricePeriod: "Sewa Tahunan",
-    title: "Rumah Minimalis Dekat Pintu Tol Kukusan",
-    location: "Kukusan, Depok",
-    bedrooms: 2,
-    bathrooms: 1,
-    landSize: 62,
-    buildingSize: 70,
-  },
-  {
-    price: "Rp 548 Juta",
-    pricePeriod: "2 Jutaan per bulan",
-    title: "Cuma 500 Jutaan Dapat Rumah Cantik",
-    location: "Tembalang, Semarang",
-    bedrooms: 1,
-    bathrooms: 1,
-    landSize: 60,
-    buildingSize: 36,
   },
 ];
 
@@ -169,6 +127,7 @@ const services = [
 const Homepage = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(null);
+  const [properties, setProperties] = useState([]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -198,6 +157,19 @@ const Homepage = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const fetchProperties = async () => {
+      try {
+        const response = await axios.get("http://localhost:3008/property"); // Sesuaikan URL API
+        setProperties(response.data);
+      } catch (error) {
+        console.error("Error fetching properties:", error);
+      }
+    };
+
+    fetchProperties();
+  }, []);
+
   return (
     <>
       <nav
@@ -208,7 +180,11 @@ const Homepage = () => {
         <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
           <div className="relative flex h-16 items-center justify-between">
             <div className="flex items-center">
-              <img src={gambar} alt="Logo" className="h-10 w-auto filter hue-rotate-[220deg]" />
+              <img
+                src={gambar}
+                alt="Logo"
+                className="h-10 w-auto filter hue-rotate-[220deg]"
+              />
             </div>
 
             <div className="flex flex-1 items-center justify-start sm:items-stretch sm:justify-start">
@@ -336,10 +312,21 @@ const Homepage = () => {
             Lihat Selengkapnya
           </button>
         </div>
-        <div className="flex p-4 space-x-4">
-          {propertyData.map((property, index) => (
-            <PropertyCard key={index} {...property} />
-          ))}
+        <div className="flex p-4 space-x-2">
+          {properties.length > 0 ? (
+            properties.map((property) => (
+              <PropertyCard
+                key={property.id}
+                title={property.name}
+                price={property.price}
+                location={property.location}
+                status={property.status || "-"}
+                description={property.description || "-"}
+              />
+            ))
+          ) : (
+            <p>Loading...</p>
+          )}
         </div>
       </div>
 
