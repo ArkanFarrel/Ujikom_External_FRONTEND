@@ -39,6 +39,13 @@ const handleScrollTolihat = () => {
   }
 };
 
+const handleScrollTosimulasi = () => {
+  const simulasiSection = document.getElementById("simulasi");
+  if (simulasiSection) {
+    simulasiSection.scrollIntoView({ behavior: "smooth" });
+  }
+};
+
 const featureCards = [
   {
     icon: "https://storage.googleapis.com/seo-cms/assets/cari_agen_eec1886a8f/cari_agen_eec1886a8f.svg",
@@ -63,10 +70,12 @@ const featureCards = [
   {
     icon: "https://storage.googleapis.com/seo-cms/assets/simulasi_kpr_105d56534d/simulasi_kpr_105d56534d.svg",
     title: "Simulasi KPR",
+    onclick: handleScrollTosimulasi,
   },
   {
     icon: "https://storage.googleapis.com/seo-cms/assets/pindah_kpr_cc6669f5e3/pindah_kpr_cc6669f5e3.svg",
     title: "Pindah KPR",
+    onclick: handleScrollTosimulasi,
   },
   {
     icon: "https://storage.googleapis.com/seo-cms/assets/Aset_Bank_adbb8a7b78/Aset_Bank_adbb8a7b78.svg",
@@ -429,7 +438,7 @@ const Landingpage = ({ cartItems = [] }) => {
             Berkualitas, Cepat, dan Ramah.
           </p>
         </div>
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div id="simulasi" className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {services.map((service, index) => (
             <div
               key={index}
