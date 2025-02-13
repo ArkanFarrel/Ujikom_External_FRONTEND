@@ -139,7 +139,7 @@ const SidebarComponent = () => {
   };
 
   const handleLogout = () => {
-    navigate("/");
+    navigate("/login");
   };
 
   return (

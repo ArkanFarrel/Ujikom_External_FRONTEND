@@ -19,9 +19,10 @@ import SidebarComponent from "../components/Sidebar.jsx";
 import { Box, Pagination } from "@mui/material";
 
 const columns = [
-  { id: "name", label: "Username", minWidth: 170 },
-  { id: "email", label: "Email", minWidth: 170 },
-  { id: "password", label: "Password", minWidth: 170 },
+  { id: "id", label: "ID", minWidth: 170 },
+  { id: "name", label: "USERNAME", minWidth: 170 },
+  { id: "email", label: "EMAIL", minWidth: 170 },
+  { id: "password", label: "PASSWORD", minWidth: 170 },
 ];
 
 const Dashboard = () => {

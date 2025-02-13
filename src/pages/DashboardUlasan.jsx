@@ -20,6 +20,7 @@ import SidebarComponent from "../components/Sidebar.jsx";
 import { Box, Pagination } from "@mui/material";
 
 const columns = [
+  { id: "id", label: "id", minWidth: 170 },
   { id: "rating", label: "rating", minWidth: 170 },
   { id: "comment", label: "comment", minWidth: 170 },
 ];
@@ -114,7 +115,7 @@ const Dashboard = () => {
 
   const handleDeleteClick = (id) => {
     if (!id) {
-      console.error("Invalid property ID");
+      console.error("Invalid ulasan ID");
       return;
     }
     setDeleteId(id);
