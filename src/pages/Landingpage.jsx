@@ -107,6 +107,12 @@ const testimonials = [
     feedback:
       "Saya mendapatkan lebih banyak buyer setelah mengiklankan properti di Rumahmu. Interface Rumahmu memudahkan saya mengatur promosi listing dengan baik.",
   },
+  {
+    name: "siapa Puspa",
+    role: "Agen",
+    feedback:
+      "Saya mendapatkan lebih banyak buyer setelah mengiklankan properti di Rumahmu. Interface Rumahmu memudahkan saya mengatur promosi listing dengan baik.",
+  },
 ];
 
 const services = [
@@ -128,24 +134,24 @@ const services = [
       "Kalkulator KPR untuk Mengetahui Besaran Cicilan Bulanan, Suku Bunga, dan Jangka Waktu yang Sesuai.",
     icon: "🏦",
   },
-  // {
-  //   title: "Listing Terbaik",
-  //   description:
-  //     "Jelajahi Berbagai Jenis Properti dengan Fasilitas Modern dan Lokasi Strategis.",
-  //   icon: "📋",
-  // },
-  // {
-  //   title: "Harga Bersahabat",
-  //   description:
-  //     "Kami Menawarkan Pilihan Terbaik dengan Harga Kompetitif dan Nilai Investasi yang Menguntungkan.",
-  //   icon: "💰",
-  // },
-  // {
-  //   title: "Komunikasi Mudah",
-  //   description:
-  //     "Kami Siap Membantu Anda Menemukan atau Menjual Properti dengan Proses yang Transparan dan Ramah.",
-  //   icon: "💬",
-  // },
+  {
+    title: "Listing Terbaik",
+    description:
+      "Jelajahi Berbagai Jenis Properti dengan Fasilitas Modern dan Lokasi Strategis.",
+    icon: "📋",
+  },
+  {
+    title: "Harga Bersahabat",
+    description:
+      "Kami Menawarkan Pilihan Terbaik dengan Harga Kompetitif dan Nilai Investasi yang Menguntungkan.",
+    icon: "💰",
+  },
+  {
+    title: "Komunikasi Mudah",
+    description:
+      "Kami Siap Membantu Anda Menemukan atau Menjual Properti dengan Proses yang Transparan dan Ramah.",
+    icon: "💬",
+  },
 ];
 
 const Landingpage = ({ cartItems = [] }) => {

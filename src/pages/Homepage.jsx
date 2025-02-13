@@ -104,6 +104,12 @@ const testimonials = [
     feedback:
       "Saya mendapatkan lebih banyak buyer setelah mengiklankan properti di Rumahmu. Interface Rumahmu memudahkan saya mengatur promosi listing dengan baik.",
   },
+  {
+    name: "Siapa Puspa",
+    role: "Agen",
+    feedback:
+      "Saya mendapatkan lebih banyak buyer setelah mengiklankan properti di Rumahmu. Interface Rumahmu memudahkan saya mengatur promosi listing dengan baik.",
+  },
 ];
 
 const services = [
