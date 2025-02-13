@@ -20,12 +20,12 @@ import SidebarComponent from "../components/Sidebar.jsx";
 import { Box, Pagination } from "@mui/material";
 
 const columns = [
-  { id: "name", label: "Property Name", minWidth: 170 },
-  { id: "price", label: "Price", minWidth: 170 },
-  { id: "location", label: "Location", minWidth: 170 },
-  { id: "status", label: "Status", minWidth: 170 },
-  { id: "description", label: "Description", minWidth: 120 },
-  { id: "action", label: "Action", minWidth: 100, align: "center" },
+  { id: "name", label: "PROPERTY NAME", minWidth: 170 },
+  { id: "price", label: "PRICE", minWidth: 170 },
+  { id: "location", label: "LOCATION", minWidth: 170 },
+  { id: "status", label: "STATUS", minWidth: 170 },
+  { id: "description", label: "DESCRIPTION", minWidth: 120 },
+  { id: "action", label: "ACTION", minWidth: 100, align: "center" },
 ];
 
 const Dashboard = () => {
