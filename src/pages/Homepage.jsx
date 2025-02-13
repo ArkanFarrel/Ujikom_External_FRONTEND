@@ -219,13 +219,13 @@ const Homepage = ({ cartItems = [] }) => {
               <div className="hidden sm:ml-6 sm:flex space-x-4">
                 <a
                   href="#/home"
-                  className="text-gray-700 hover:bg-green-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                  className="text-gray-700 hover:bg-blue-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                 >
                   Home
                 </a>
                 <a
                   href="#/home"
-                  className="text-gray-700 hover:bg-green-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                  className="text-gray-700 hover:bg-blue-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                 >
                   About us
                 </a>
@@ -237,7 +237,7 @@ const Homepage = ({ cartItems = [] }) => {
                         dropdownOpen === "dijual" ? null : "dijual"
                       )
                     }
-                    className="text-gray-700 hover:bg-green-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                    className="text-gray-700 hover:bg-blue-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                   >
                     Dijual
                   </button>
@@ -250,7 +250,7 @@ const Homepage = ({ cartItems = [] }) => {
 
                           // sementara seperti dibawah ini
                           href="#/home"
-                          className="block px-4 py-2 text-gray-700 hover:bg-green-200 transition"
+                          className="block px-4 py-2 text-gray-700 hover:bg-blue-200 transition"
                         >
                           {item}
                         </a>
@@ -266,7 +266,7 @@ const Homepage = ({ cartItems = [] }) => {
                         dropdownOpen === "disewakan" ? null : "disewakan"
                       )
                     }
-                    className="text-gray-700 hover:bg-green-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                    className="text-gray-700 hover:bg-blue-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                   >
                     Disewakan
                   </button>
@@ -279,7 +279,7 @@ const Homepage = ({ cartItems = [] }) => {
 
                           // sementara seperti dibawah ini
                           href="#/home"
-                          className="block px-4 py-2 text-gray-700 hover:bg-green-200 transition"
+                          className="block px-4 py-2 text-gray-700 hover:bg-blue-200 transition"
                         >
                           {item}
                         </a>

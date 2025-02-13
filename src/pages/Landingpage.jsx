@@ -191,7 +191,7 @@ const Landingpage = ({ cartItems = [] }) => {
   useEffect(() => {
     const fetchProperties = async () => {
       try {
-        const response = await axios.get("http://localhost:3008/property"); // Sesuaikan URL API
+        const response = await axios.get("http://localhost:3008/property");
         setProperties(response.data);
       } catch (error) {
         console.error("Error fetching properties:", error);
@@ -226,13 +226,13 @@ const Landingpage = ({ cartItems = [] }) => {
               <div className="hidden sm:ml-6 sm:flex space-x-4">
                 <a
                   href=""
-                  className="text-gray-700 hover:bg-green-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                  className="text-gray-700 hover:bg-blue-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                 >
                   Home
                 </a>
                 <a
                   href=""
-                  className="text-gray-700 hover:bg-green-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                  className="text-gray-700 hover:bg-blue-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                 >
                   About us
                 </a>
@@ -244,7 +244,7 @@ const Landingpage = ({ cartItems = [] }) => {
                         dropdownOpen === "dijual" ? null : "dijual"
                       )
                     }
-                    className="text-gray-700 hover:bg-green-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                    className="text-gray-700 hover:bg-blue-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                   >
                     Dijual
                   </button>
@@ -255,7 +255,7 @@ const Landingpage = ({ cartItems = [] }) => {
                           key={item}
                           // href={`/${item.toLowerCase()}`}
                           href=""
-                          className="block px-4 py-2 text-gray-700 hover:bg-green-200 transition"
+                          className="block px-4 py-2 text-gray-700 hover:bg-blue-200 transition"
                         >
                           {item}
                         </a>
@@ -271,7 +271,7 @@ const Landingpage = ({ cartItems = [] }) => {
                         dropdownOpen === "disewakan" ? null : "disewakan"
                       )
                     }
-                    className="text-gray-700 hover:bg-green-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                    className="text-gray-700 hover:bg-blue-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                   >
                     Disewakan
                   </button>
@@ -282,7 +282,7 @@ const Landingpage = ({ cartItems = [] }) => {
                           key={item}
                           // href={`/${item.toLowerCase()}`}
                           href=""
-                          className="block px-4 py-2 text-gray-700 hover:bg-green-200 transition"
+                          className="block px-4 py-2 text-gray-700 hover:bg-blue-200 transition"
                         >
                           {item}
                         </a>

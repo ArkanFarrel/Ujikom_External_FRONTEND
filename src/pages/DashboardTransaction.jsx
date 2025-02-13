@@ -20,7 +20,6 @@ import { Box, Pagination } from "@mui/material";
 
 const columns = [
   { id: "id", label: "ID", minWidth: 170 },
-  { id: "PropertyId", label: "PROPERTY ID", minWidth: 170 },
   { id: "TransactionDate", label: "TRANSACTION DATE", minWidth: 170 },
   { id: "Status", label: "STATUS", minWidth: 170 },
   { id: "Agent", label: "AGENT", minWidth: 170 },
