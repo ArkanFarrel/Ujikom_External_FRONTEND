@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
-import Footer from "../components/Footer.jsx";
 import PropertyCard from "../components/Propertycard.jsx";
 import FeatureCard from "../components/Featurecard.jsx";
 import gambar from "../img/logo-rku.png";
@@ -13,6 +12,7 @@ import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import Footerlandingpage from "../components/Footerlandingpage.jsx";
 
 const handleScrollToTestimonial = () => {
   const testimonialSection = document.getElementById("testimonials");
@@ -522,7 +522,7 @@ const Landingpage = ({ cartItems = [] }) => {
           </div>
         </div>
       </div>
-      <Footer />
+      <Footerlandingpage />
     </>
   );
 };
