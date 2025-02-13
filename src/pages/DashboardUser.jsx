@@ -251,7 +251,7 @@ const Dashboard = () => {
 
       {/* Popup add new Property */}
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Add New Property</DialogTitle>
+        <DialogTitle>Add New User</DialogTitle>
         <DialogContent>
           <TextField
             autoFocus
@@ -325,7 +325,7 @@ const Dashboard = () => {
       <Dialog open={confirmOpen} onClose={handleCancelDelete}>
         <DialogTitle>Confirm Delete</DialogTitle>
         <DialogContent>
-          <p>Are you sure you want to delete this property?</p>
+          <p>Are you sure you want to delete this user?</p>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleCancelDelete}>Cancel</Button>

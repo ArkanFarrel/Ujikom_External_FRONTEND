@@ -158,6 +158,7 @@ const Landingpage = ({ cartItems = [] }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(null);
   const [properties, setProperties] = useState([]);
+  // const [ulasan, setUlasan] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -200,6 +201,19 @@ const Landingpage = ({ cartItems = [] }) => {
 
     fetchProperties();
   }, []);
+
+  // useEffect(() => {
+  //   const fetchUlasan = async () => {
+  //     try {
+  //       const response = await axios.get("http://localhost:3008/ulasan");
+  //       setProperties(response.data);
+  //     } catch (error) {
+  //       console.error("Error fetching properties:", error);
+  //     }
+  //   };
+
+  //   fetchUlasan();
+  // }, []);
 
   const navigate = useNavigate();
   const handleLogin = () => navigate("/login");

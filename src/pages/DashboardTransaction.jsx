@@ -294,7 +294,7 @@ const DashboardTransaction = () => {
 
       {/* Popup edit Property */}
       <Dialog open={editOpen} onClose={() => setEditOpen(false)}>
-        <DialogTitle>Edit Property</DialogTitle>
+        <DialogTitle>Edit Data Transaction</DialogTitle>
         <DialogContent>
         <TextField
             autoFocus

@@ -280,7 +280,7 @@ const Dashboardadmin = () => {
       <Dialog open={confirmOpen} onClose={handleCancelDelete}>
         <DialogTitle>Confirm Delete</DialogTitle>
         <DialogContent>
-          <p>Are you sure you want to delete this property?</p>
+          <p>Are you sure you want to delete this admin?</p>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleCancelDelete}>Cancel</Button>
