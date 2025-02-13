@@ -226,13 +226,13 @@ const Landingpage = ({ cartItems = [] }) => {
               <div className="hidden sm:ml-6 sm:flex space-x-4">
                 <a
                   href=""
-                  className="text-gray-700 hover:bg-blue-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                  className="text-gray-700 hover:bg-blue-600 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                 >
                   Home
                 </a>
                 <a
                   href=""
-                  className="text-gray-700 hover:bg-blue-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                  className="text-gray-700 hover:bg-blue-600 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                 >
                   About us
                 </a>
@@ -244,7 +244,7 @@ const Landingpage = ({ cartItems = [] }) => {
                         dropdownOpen === "dijual" ? null : "dijual"
                       )
                     }
-                    className="text-gray-700 hover:bg-blue-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                    className="text-gray-700 hover:bg-blue-600 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                   >
                     Dijual
                   </button>
@@ -271,7 +271,7 @@ const Landingpage = ({ cartItems = [] }) => {
                         dropdownOpen === "disewakan" ? null : "disewakan"
                       )
                     }
-                    className="text-gray-700 hover:bg-blue-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                    className="text-gray-700 hover:bg-blue-600 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                   >
                     Disewakan
                   </button>
