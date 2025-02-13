@@ -283,15 +283,15 @@ const Dashboard = () => {
             name="rating"
             label="Rating"
             fullWidth
-            value={newProperty.name}
+            value={newProperty.rating}
             onChange={handleChange}
           />
           <TextField
             margin="dense"
             name="rating"
-            label="Rating"
+            label="Comment"
             fullWidth
-            value={newProperty.price}
+            value={newProperty.comment}
             onChange={handleChange}
           />
         </DialogContent>

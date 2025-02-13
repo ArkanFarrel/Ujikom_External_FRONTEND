@@ -263,7 +263,7 @@ const DashboardTransaction = () => {
             label="Transaction Date"
             type="date"
             fullWidth
-            value={newProperty.date}
+            value={newProperty.TransactionDate}
             onChange={handleChange}
             InputLabelProps={{
               shrink: true, 
@@ -274,7 +274,7 @@ const DashboardTransaction = () => {
             name="name"
             label="Status"
             fullWidth
-            value={newProperty.email}
+            value={newProperty.Status}
             onChange={handleChange}
           />
           <TextField
@@ -282,7 +282,7 @@ const DashboardTransaction = () => {
             name="name"
             label="Agent"
             fullWidth
-            value={newProperty.password}
+            value={newProperty.Agent}
             onChange={handleChange}
           />
         </DialogContent>
@@ -303,7 +303,7 @@ const DashboardTransaction = () => {
             label="Transaction Date"
             type="date"
             fullWidth
-            value={newProperty.date}
+            value={newProperty.TransactionDate}
             onChange={handleChange}
             InputLabelProps={{
               shrink: true, 
@@ -314,7 +314,7 @@ const DashboardTransaction = () => {
             name="name"
             label="Status"
             fullWidth
-            value={newProperty.email}
+            value={newProperty.Status}
             onChange={handleChange}
           />
           <TextField
@@ -322,7 +322,7 @@ const DashboardTransaction = () => {
             name="name"
             label="Agent"
             fullWidth
-            value={newProperty.password}
+            value={newProperty.Agent}
             onChange={handleChange}
           />
         </DialogContent>
