@@ -24,7 +24,7 @@ const PropertyCard = ({ title, price, location, status, description }) => (
   <div className="max-w-sm bg-white shadow-md rounded-lg overflow-hidden transition-transform duration-300 hover:scale-95 min-h-full flex flex-col">
     <img
       className="w-full h-48 object-cover"
-      src="https://tse1.mm.bing.net/th?id=OIP.jbfZdHFiYHQIE9aOaVI4mwHaE8&pid=Api&P=0&h=180"
+      src="https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
       alt="property"
     />
     <div className="p-4">
