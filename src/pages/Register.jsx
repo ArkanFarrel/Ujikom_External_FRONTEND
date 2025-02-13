@@ -57,7 +57,7 @@ const Register = () => {
         <img className="w-full h-full object-cover" src={rumah} alt="Rumah" />
       </div>
 
-      <div className="bg-orange-600 flex flex-col justify-center">
+      <div className="bg-blue-400 flex flex-col justify-center">
         <form
           className="max-w-[400px] w-full mx-auto rounded-lg bg-gray-900 p-8 px-8"
           onSubmit={formik.handleSubmit}
