@@ -1,9 +1,9 @@
 const data = [
-  {
-    id: 1,
-    parent_id: 2,
-    name: "ListRumah",
-  },
+  // {
+  //   id: 1,
+  //   parent_id: 2,
+  //   name: "ListRumah",
+  // },
     {
       id: 2,
       parent_id: null,
