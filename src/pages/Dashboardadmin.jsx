@@ -19,9 +19,10 @@ import SidebarComponent from "../components/Sidebar.jsx";
 import { Box } from "@mui/material";
 
 const columns = [
-  { id: "email", label: "Email", minWidth: 170 },
-  { id: "password", label: "Password", minWidth: 170 },
-  { id: "action", label: "Action", minWidth: 100, align: "center" },
+  { id: "id", label: "ID", minWidth: 170 },
+  { id: "email", label: "EMAIL", minWidth: 170 },
+  { id: "password", label: "PASSWORD", minWidth: 170 },
+  { id: "action", label: "ACTION", minWidth: 100, align: "center" },
 ];
 
 const Dashboardadmin = () => {
@@ -178,6 +179,7 @@ const Dashboardadmin = () => {
                                 gap={1}
                               >
                                 <Button
+                                  // style={{marginLeft: "40px"}}
                                   variant="outlined"
                                   startIcon={<EditIcon />}
                                   onClick={() => handleEditClick(row)}
@@ -185,6 +187,7 @@ const Dashboardadmin = () => {
                                   Edit
                                 </Button>
                                 <Button
+                                // style={{marginLeft: "50px"}}
                                   variant="outlined"
                                   startIcon={<DeleteIcon />}
                                   onClick={() => handleDeleteClick(row.id)}

@@ -23,6 +23,7 @@ const columns = [
   { id: "name", label: "USERNAME", minWidth: 170 },
   { id: "email", label: "EMAIL", minWidth: 170 },
   { id: "password", label: "PASSWORD", minWidth: 170 },
+  { id: "action", label: "Action", minWidth: 100, align: "center" },
 ];
 
 const Dashboard = () => {

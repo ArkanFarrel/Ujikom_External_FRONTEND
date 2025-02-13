@@ -24,6 +24,7 @@ const columns = [
   { id: "TransactionDate", label: "TransactionDate", minWidth: 170 },
   { id: "Status", label: "Status", minWidth: 170 },
   { id: "Agent", label: "Agent", minWidth: 170 },
+  { id: "action", label: "Action", minWidth: 100, align: "center" },
 ];
 
 const DashboardTransaction = () => {

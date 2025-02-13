@@ -23,6 +23,7 @@ const columns = [
   { id: "id", label: "id", minWidth: 170 },
   { id: "rating", label: "rating", minWidth: 170 },
   { id: "comment", label: "comment", minWidth: 170 },
+  { id: "action", label: "Action", minWidth: 100, align: "center" },
 ];
 
 const Dashboard = () => {
@@ -99,7 +100,7 @@ const Dashboard = () => {
     } catch (error) {
       if (error.response) {
         if (error.response.status === 404) {
-          console.error("Property Tidak Ditemukan");
+          console.error("data Ulasan Tidak Ditemukan");
         } else {
           console.error(
             `Error: ${error.response.status} - ${error.response.statusText}`
