@@ -20,6 +20,7 @@ import { Box } from "@mui/material";
 
 const columns = [
   { id: "id", label: "ID", minWidth: 170 },
+  { id: "name", label: "NAME", minWidth: 170 },
   { id: "email", label: "EMAIL", minWidth: 170 },
   { id: "password", label: "PASSWORD", minWidth: 170 },
   { id: "action", label: "ACTION", minWidth: 100, align: "center" },
@@ -66,6 +67,7 @@ const Dashboardadmin = () => {
       setEditOpen(false);
       fetchData();
       setNewAdmin({
+       name: "",
        email: "",
        password: "",
       });
@@ -116,7 +118,7 @@ const Dashboardadmin = () => {
 
   const handleClose = () => {
     setOpen(false);
-    setNewAdmin({ email: "", password: "" });
+    setNewAdmin({ name: "", email: "", password: "" });
   };
 
   const handleChange = (e) => {
@@ -213,6 +215,15 @@ const Dashboardadmin = () => {
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Add New Admin</DialogTitle>
         <DialogContent>
+          <TextField
+            autoFocus
+            margin="dense"
+            name="name"
+            label="Name"
+            fullWidth
+            value={newAdmin.name}
+            onChange={handleChange}
+          />
           <TextField
             autoFocus
             margin="dense"
