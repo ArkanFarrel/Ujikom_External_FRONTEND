@@ -45,7 +45,7 @@ frontend_UTS/
 ### Installation
 1. Clone the repository
 ```bash
-git clone https://github.com/ArkanFarrel/frontend_UTS.git
+git clone https://github.com/ArkanFarrel/Ujikom_Internal_FRONTEND.git
 ```
 
 2. Navigate to project directory
