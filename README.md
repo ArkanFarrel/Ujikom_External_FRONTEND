@@ -1,4 +1,4 @@
-# UJIKOM INTERNAL ( FRONTEND ) - Property Management Application
+# UJIKOM EXTERNAL ( FRONTEND ) - Property Management Application
 
 ## 📝 Description
 A modern web-based property management system built with React. This application streamlines the process of managing real estate properties, enabling users to efficiently handle property listings, tenant information, and property transactions through an intuitive interface.
@@ -23,12 +23,26 @@ A modern web-based property management system built with React. This application
 
 ## 📦 Project Structure
 ```
-frontend_UTS/
+frontend/
 ├── src/
 │   ├── components/     # Reusable UI components
-│   │   ├── PropertyCard/
-│   │   ├── PropertyList/
-│   │   └── Dashboard/
+│   │   ├── Featurecard/
+│   │   ├── Footerhomepage/
+│   │   ├── Footerlandingpage/
+│   │   ├── Propertycard/
+│   │   └── Sidebar/
+│   ├── pages/     # Reusable UI components
+│   │   ├── Dashboard/
+│   │   ├── Dashboardadmin/
+│   │   ├── Dashboardtransaksi/
+│   │   ├── Dashboardulasan/
+│   │   └── Dashboarduser/
+│   │   └── forgotpassword/
+│   │   └── homepage/
+│   │   └── landingpage/
+│   │   └── listrumah/
+│   │   └── login/
+│   │   └── register/
 │   ├── pages/         # Main application pages
 │   ├── assets/        # Static assets (images, styles)
 │   └── App.js         # Main application component
@@ -45,12 +59,12 @@ frontend_UTS/
 ### Installation
 1. Clone the repository
 ```bash
-git clone https://github.com/ArkanFarrel/Ujikom_Internal_FRONTEND.git
+git clone https://github.com/ArkanFarrel/Ujikom_External_FRONTEND.git
 ```
 
 2. Navigate to project directory
 ```bash
-cd frontend_UTS
+cd frontend
 ```
 
 3. Install dependencies

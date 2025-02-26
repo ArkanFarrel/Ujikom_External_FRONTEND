@@ -31,9 +31,9 @@ const Dashboardadmin = () => {
   const [open, setOpen] = useState(false);
   const [editOpen, setEditOpen] = useState(false);
   const [confirmOpen, setConfirmOpen] = useState(false);
-  const [newAdmin, setNewAdmin] = useState({ email: "", password: "" });
-  const [deleteId, setDeleteId] = useState(null);
+  const [newAdmin, setNewAdmin] = useState({ name: "", email: "", password: "" });
   const [editAdmin, setEditAdmin] = useState(null);
+  const [deleteId, setDeleteId] = useState(null);
 
   const fetchData = async () => {
     try {
@@ -67,7 +67,7 @@ const Dashboardadmin = () => {
       setEditOpen(false);
       fetchData();
       setNewAdmin({
-       name: "",
+      name: "",
        email: "",
        password: "",
       });
@@ -80,12 +80,12 @@ const Dashboardadmin = () => {
   const handleConfirmDelete = async () => {
     try {
       if (!deleteId) {
-        console.error("Invalid property ID");
+        console.error("Invalid Admin ID");
         return;
       }
 
       const deleteUrl = `http://localhost:3008/admin/delete/${deleteId}`;
-      console.log(`Menghapus Data Property Dengan ID: ${deleteId}`);
+      console.log(`Menghapus Data Admin Dengan ID: ${deleteId}`);
       console.log(`Delete URL: ${deleteUrl}`);
       await axios.delete(deleteUrl);
 
@@ -127,7 +127,7 @@ const Dashboardadmin = () => {
 
   const handleEditClick = (row) => {
     setEditAdmin(row.id);
-    setNewAdmin({ email: row.email, password: row.password });
+    setNewAdmin({ name: row.name, email: row.email, password: row.password });
     setEditOpen(true);
   };
 
@@ -230,7 +230,7 @@ const Dashboardadmin = () => {
             name="email"
             label="Email"
             fullWidth
-            value={newAdmin.email}
+            value={newAdmin.price}
             onChange={handleChange}
           />
           <TextField
@@ -238,7 +238,7 @@ const Dashboardadmin = () => {
             name="password"
             label="Password"
             fullWidth
-            value={newAdmin.password}
+            value={newAdmin.loc}
             onChange={handleChange}
           />
         </DialogContent>
@@ -252,6 +252,15 @@ const Dashboardadmin = () => {
       <Dialog open={editOpen} onClose={() => setEditOpen(false)}>
         <DialogTitle>Edit Admin</DialogTitle>
         <DialogContent>
+          <TextField
+            autoFocus
+            margin="dense"
+            name="nama"
+            label="Name"
+            fullWidth
+            value={newAdmin.name}
+            onChange={handleChange}
+          />
           <TextField
             autoFocus
             margin="dense"
