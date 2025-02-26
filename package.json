@@ -1,7 +1,7 @@
 {
   "name": "frontend",
   "version": "0.1.0",
-  "homepage": "https://arkanfarrel.github.io/Ujikom_Internal",
+  "homepage": "https://arkanfarrel.github.io/Ujikom_External",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.13.3",
